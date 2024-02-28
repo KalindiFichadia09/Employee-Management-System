@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/dashboard"
+            android:title="Dashboard"
+            android:icon="@drawable/dashboard_icon"/>
+
+        <item
+            android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/profile_icon"/>
+
+        <item
+            android:id="@+id/working_hour"
+            android:title="Working Hours"
+            android:icon="@drawable/working_hour_icon"/>
+
+        <item
+            android:id="@+id/task"
+            android:title="Task"
+            android:icon="@drawable/task_icon"/>
+
+        <item
+            android:id="@+id/leave"
+            android:title="Leave"
+            android:icon="@drawable/leave_icon"/>
+
+        <item
+            android:id="@+id/payslips"
+            android:title="Pay-slips"
+            android:icon="@drawable/payslips_icon"/>
+
+        <item
+            android:id="@+id/holiday"
+            android:title="Holidays"
+            android:icon="@drawable/holiday_icon"/>
+
+</menu>

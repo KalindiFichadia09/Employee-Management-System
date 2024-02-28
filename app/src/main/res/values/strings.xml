@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AutoFusion</string>
+    <string name="open_navigation_drawer">open navigation drawer</string>
+    <string name="close_navigation_drawer">close_navigation_drawer</string>
+    <string name="cmp_nm" translatable="true">AutoFusion</string>
+    <string name="nav_open">open</string>
+    <string name="nav_close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string-array name="leave_type">
+        <item>--Select Leave Type--</item>
+        <item>CL(Casual Leave)</item>
+        <item>PL(Privilege Leave)</item>
+        <item>SL(Seek Leave)</item>
+    </string-array>
+
+    <string-array name="leave_category">
+        <item>--Select Leave Category--</item>
+        <item>Full Day</item>
+        <item>Half Day</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@color/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/lt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Leave Type : "/>
+
+                    <Spinner
+                        android:id="@+id/leave_type"
+                        style="@style/edit_text"
+                        android:background="@drawable/edit_txt_design" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lt"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Leave Type : "/>
+
+                        <Spinner
+                        android:id="@+id/leave_category"
+                        style="@style/edit_text"
+                        android:background="@drawable/edit_txt_design" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lsd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lc"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Leave Start Date : "/>
+
+                    <DatePicker
+                        android:id="@+id/leave_start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:minDate="01/01/2024"
+                        android:maxDate="31/12/2024" />
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/leave_start_date"-->
+<!--                        style="@style/edit_text"-->
+<!--                        android:hint="Enter Leave Start Date"-->
+<!--                        android:background="@drawable/edit_txt_design"/>-->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/led"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lsd"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Leave End Date : "/>
+
+                    <DatePicker
+                        android:id="@+id/leave_end_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:minDate="01/01/2024"
+                        android:maxDate="31/12/2024" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/led"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Remarks : "/>
+
+                    <EditText
+                        android:id="@+id/leave_remarks"
+                        style="@style/edit_text"
+                        android:hint="Enter Remarks"
+                        android:background="@drawable/edit_txt_design"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rm"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Add Attachment : " />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:id="@+id/leave_attachment"
+                        android:contextClickable="true"
+                        android:background="@drawable/edit_txt_design"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/aa"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_apply"
+                        android:text="Apply"
+                        android:textAlignment="center"
+                        android:textSize="25sp"
+                        android:background="@drawable/button_design"
+                        android:padding="15dp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:id="@+id/txt_ans"/>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
