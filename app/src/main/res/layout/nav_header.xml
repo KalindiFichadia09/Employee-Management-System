@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:padding="16dp"
-    android:background="#C5C1C1"
+    android:background="#182932"
     android:gravity="center"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_white"
         android:layout_marginTop="15dp"/>
 
 </LinearLayout>

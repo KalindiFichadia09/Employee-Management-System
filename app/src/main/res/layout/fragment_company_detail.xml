@@ -39,19 +39,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Employee Id: "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Employee Id: "/>
 
                     <TextView
-                        android:id="@+id/txt_fnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="21AFL10101"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="21AFL10101"/>
 
                 </LinearLayout>
 
@@ -67,20 +60,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Department Name : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Department Name : "/>
 
                     <TextView
-                        android:id="@+id/txt_ftnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Production"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Production"/>
 
                 </LinearLayout>
 
@@ -96,20 +81,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Year of Joining : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Year of Joining : "/>
 
                     <TextView
-                        android:id="@+id/txt_mnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="15/01/2021"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="15/01/2021"/>
 
                 </LinearLayout>
 
@@ -125,20 +102,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Company Email : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Company Email : "/>
 
                     <TextView
-                        android:id="@+id/txt_gen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="johnny.brown@autofusion.in"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="johnny.brown@autofusion.in"/>
 
                 </LinearLayout>
 
@@ -154,20 +123,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Job Type : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Job Type : "/>
 
                     <TextView
-                        android:id="@+id/txt_dob"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Permenent Job"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Permenent Job" />
 
                 </LinearLayout>
 

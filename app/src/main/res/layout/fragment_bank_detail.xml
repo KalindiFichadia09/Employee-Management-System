@@ -39,19 +39,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Account Holder Name: "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Account Holder Name: "/>
 
                     <TextView
-                        android:id="@+id/txt_ahn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Johnny Erik Brown"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Johnny Erik Brown"/>
 
                 </LinearLayout>
 
@@ -67,20 +60,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Bank Name : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Bank Name : "/>
 
                     <TextView
-                        android:id="@+id/txt_bnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bank of India"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Bank of India"/>
 
                 </LinearLayout>
 
@@ -96,20 +81,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Bank Account Number : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Bank Account Number : "/>
 
                     <TextView
-                        android:id="@+id/txt_ban"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12345678911"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="12345678911"/>
 
                 </LinearLayout>
 
@@ -125,20 +102,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Bank IFSC Code : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Bank IFSC Code : "/>
 
                     <TextView
-                        android:id="@+id/txt_bic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="123456789101"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="123456789101"/>
 
                 </LinearLayout>
 
@@ -154,20 +123,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Bank Code : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Bank Code : "/>
 
                     <TextView
-                        android:id="@+id/txt_bc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="BKI101"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="BKI101"/>
 
                 </LinearLayout>
 
@@ -183,20 +144,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Branch Name : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Branch Name : "/>
 
                     <TextView
-                        android:id="@+id/txt_brnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bhakti nager circle"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Bhakti nager circle"/>
 
                 </LinearLayout>
 

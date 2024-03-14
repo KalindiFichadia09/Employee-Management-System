@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".see_leave">
+    tools:context=".salaryslip">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -35,32 +35,41 @@
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave type"
+                        android:text="Employee Id"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave category"
+                        android:text="Month"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave start date"
+                        android:text="PayScale(Duration)"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave end date"
+                        android:text="Basic Pay"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Remarks"
+                        android:text="Allowance"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Atteched Documents"
+                        android:text="Deduction"
+                        style="@style/txt_tbl_heading"/>
+
+                    <TextView
+                        android:text="Adjustment"
+                        style="@style/txt_tbl_heading"/>
+
+                    <TextView
+                        android:text="Total Amount"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
                         android:text="Action"
                         style="@style/txt_tbl_heading"/>
+
                 </TableRow>
 
                 <View
@@ -75,33 +84,42 @@
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="CL"
+                        android:text="21AFPL101"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Fullday"
+                        android:text="January-2024"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="30 Days"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="₹ 12000"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="I want day leave..."
+                        android:text="₹ 400"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="-"
+                        android:text="₹ 200"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Approved"
+                        android:text="₹ 100"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="₹ 12700"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="Paid"
                         android:textColor="#5ED663"
                         style="@style/txt_tbl_ans"/>
+
                 </TableRow>
 
                 <TableRow>
@@ -111,33 +129,42 @@
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="CL"
+                        android:text="21AFPL101"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Fullday"
+                        android:text="February-2024"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="30 Days"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="₹ 12000"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="I want day leave..."
+                        android:text="₹ 400"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="-"
+                        android:text="₹ 200"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Pending"
-                        android:textColor="#C8F35D57"
+                        android:text="₹ 100"
                         style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="₹ 12700"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="Paid"
+                        android:textColor="#5ED663"
+                        style="@style/txt_tbl_ans"/>
+
                 </TableRow>
 
             </TableLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".see_leave">
+    tools:context=".working_hour">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -35,32 +35,29 @@
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave type"
+                        android:text="Month"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave category"
+                        android:text="Allocated Hour"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave start date"
+                        android:text="Filled Hour"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Leave end date"
+                        android:text="Remaining"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Remarks"
+                        android:text="Leave"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Atteched Documents"
+                        android:text="Attendance in Percentage"
                         style="@style/txt_tbl_heading"/>
 
-                    <TextView
-                        android:text="Action"
-                        style="@style/txt_tbl_heading"/>
                 </TableRow>
 
                 <View
@@ -75,33 +72,29 @@
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="CL"
+                        android:text="January-2024"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Fullday"
+                        android:text="160"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="110"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="25"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="I want day leave..."
+                        android:text="16"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="-"
+                        android:text="94.37%"
                         style="@style/txt_tbl_ans"/>
 
-                    <TextView
-                        android:text="Approved"
-                        android:textColor="#5ED663"
-                        style="@style/txt_tbl_ans"/>
                 </TableRow>
 
                 <TableRow>
@@ -111,33 +104,93 @@
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="CL"
+                        android:text="February-2024"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Fullday"
+                        android:text="160"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="118"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="02 January 2024"
+                        android:text="25"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="I want day leave..."
+                        android:text="8"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="-"
+                        android:text="94.37%"
+                        style="@style/txt_tbl_ans"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="3"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="Pending"
-                        android:textColor="#C8F35D57"
+                        android:text="March-2024"
                         style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="160"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="110"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="25"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="16"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="94.37%"
+                        style="@style/txt_tbl_ans"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:text="4"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="April-2024"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="160"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="110"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="25"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="16"
+                        style="@style/txt_tbl_ans"/>
+
+                    <TextView
+                        android:text="94.37%"
+                        style="@style/txt_tbl_ans"/>
+
                 </TableRow>
 
             </TableLayout>

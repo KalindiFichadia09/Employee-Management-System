@@ -27,13 +27,18 @@
             android:icon="@drawable/leave_icon"/>
 
         <item
-            android:id="@+id/payslips"
-            android:title="Pay-slips"
+            android:id="@+id/salaryslip"
+            android:title="Salary-slips"
             android:icon="@drawable/payslips_icon"/>
 
         <item
             android:id="@+id/holiday"
             android:title="Holidays"
             android:icon="@drawable/holiday_icon"/>
+
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/logout_icon"/>
 
 </menu>

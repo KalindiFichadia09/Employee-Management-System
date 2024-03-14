@@ -61,20 +61,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Father Name : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Father Name : " />
 
                     <TextView
-                        android:id="@+id/txt_ftnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Eric Brown"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Eric Brown" />
 
                 </LinearLayout>
 
@@ -90,20 +82,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Mother Name : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Mother Name : " />
 
                     <TextView
-                        android:id="@+id/txt_mnm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Renee Brown"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Renee Brown" />
 
                 </LinearLayout>
 
@@ -119,20 +103,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Gender : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Gender : " />
 
                     <TextView
-                        android:id="@+id/txt_gen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Male"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="Male" />
 
                 </LinearLayout>
 
@@ -148,20 +124,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Date of Birth : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Gender : " />
 
                     <TextView
-                        android:id="@+id/txt_dob"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="23/12/2000"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="23/12/2000" />
 
                 </LinearLayout>
 
@@ -177,20 +145,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Aadhar Number : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Aadhar Number : " />
 
                     <TextView
-                        android:id="@+id/txt_adharno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1234 5678 9123"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="1234 5678 9123" />
 
                 </LinearLayout>
 
@@ -206,20 +166,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Aadhar Number : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Aadhar Number : " />
 
                     <TextView
-                        android:id="@+id/txt_bloodg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="B+"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="B+" />
 
                 </LinearLayout>
 
@@ -235,20 +187,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Age : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Age : " />
 
                     <TextView
-                        android:id="@+id/txt_age"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="24"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="24" />
 
                 </LinearLayout>
 
@@ -264,20 +208,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Mobile Number : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Mobile Number : "/>
 
                     <TextView
-                        android:id="@+id/txt_mobile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+91 9929478288"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="+91 9929478288" />
 
                 </LinearLayout>
 
@@ -293,20 +229,12 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Email : "
-                        android:textColor="@color/black_heading"
-                        android:textSize="25sp" />
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Email : " />
 
                     <TextView
-                        android:id="@+id/txt_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="johnny.brown23@gmail.com"
-                        android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        style="@style/txt_ans_pro_detail"
+                        android:text="johnny.brown23@gmail.com" />
 
                 </LinearLayout>
 

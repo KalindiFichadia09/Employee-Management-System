@@ -54,7 +54,7 @@ public class Dashboard extends AppCompatActivity {
                     loadFragment(new profile());
                     Toast.makeText(Dashboard.this,"Profile", Toast.LENGTH_SHORT).show();
                 } else if (id==R.id.working_hour) {
-                    loadFragment(new profile());
+                    loadFragment(new working_hour());
                     Toast.makeText(Dashboard.this,"Working Hour", Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.task) {
                     loadFragment(new task());
@@ -62,13 +62,16 @@ public class Dashboard extends AppCompatActivity {
                 }else if (id==R.id.leave) {
                     loadFragment(new leave());
                     Toast.makeText(Dashboard.this,"Leave", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.payslips) {
-//                    loadFragment(new holiday());
-                    startActivity(new Intent(getApplicationContext(), pro.class));
-                    Toast.makeText(Dashboard.this,"Pay-slips", Toast.LENGTH_SHORT).show();
-                }else {
+                }else if (id==R.id.salaryslip) {
+                    loadFragment(new salaryslip());
+                    Toast.makeText(Dashboard.this,"Salary-slips", Toast.LENGTH_SHORT).show();
+                }else if (id==R.id.holiday) {
                     loadFragment(new holiday());
-                    Toast.makeText(Dashboard.this,"Holidays", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
+                } else {
+//                    loadFragment(new holiday());
+                    //startActivity(new Intent(getApplicationContext(), salaryslip.class));
+                    Toast.makeText(Dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
                 }
                 drawer_layout.closeDrawer(GravityCompat.START);
                 return true;
