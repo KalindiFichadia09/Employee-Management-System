@@ -125,7 +125,7 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Gender : " />
+                        android:text="Date of Birth : " />
 
                     <TextView
                         style="@style/txt_ans_pro_detail"
@@ -167,7 +167,7 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Aadhar Number : " />
+                        android:text="Blood Group : " />
 
                     <TextView
                         style="@style/txt_ans_pro_detail"

@@ -11,4 +11,8 @@
     <color name="lavender">#8692f7</color>
     <color name="blue">#1F80C6</color>
     <color name="black_heading">#8C8B8B</color>
+    <color name="btn_login">#C324333C</color>
+    <color name="hint_clr">#61414A50</color>
+    <color name="update">#5ED663</color>
+    <color name="remove">#C8F35D57</color>
 </resources>

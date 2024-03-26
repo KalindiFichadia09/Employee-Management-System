@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:padding="16dp"
+    tools:context=".admin_add_employee">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flow_verticalAlign="center"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="350dp"
+            android:layout_height="fill_parent"
+            android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PI"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/pih"
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Personal Information : "
+                        android:textColor="@color/blue"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/fnm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/pih"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Full Name : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Full_Name"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Full Name" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ftnm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/fnm"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Father Name : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Father_Name"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Father Name" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mnm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ftnm"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Mother Name : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Mother_Name"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Mother Name" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/gen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/mnm"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Gender : " />
+
+                        <RadioGroup
+                            android:id="@+id/Emp_Gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/edit_txt_design"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:text="Male" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Female" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dob"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/gen"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Date of Birth : " />
+
+                        <DatePicker
+                            android:id="@+id/Emp_Birth_Date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_txt_design"
+                            android:calendarViewShown="false"
+                            android:datePickerMode="spinner"
+                            android:maxDate="31/12/2024"
+                            android:minDate="01/01/1990" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/Adharno"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dob"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Aadhar Number : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Aaddar_no"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Aaddhar Number" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bloodg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/Adharno"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Blood Group : " />
+
+                        <Spinner
+                            android:id="@+id/Emp_Blood_Group"
+                            style="@style/spinner"
+                            android:background="@drawable/edit_txt_design" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/age"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bloodg"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Age : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Age"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Age" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mobile"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/age"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Mobile Number : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Mobile_no"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Mobile Number" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/mobile"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Email : " />
+
+                        <EditText
+                            android:id="@+id/Emp_Email"
+                            style="@style/edit_text"
+                            android:background="@drawable/edit_txt_design"
+                            android:hint="Enter Email" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/COMI"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PI"
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginTop="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/comh"
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Company Information : "
+                        android:textColor="@color/blue"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/eid"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/comh"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Employee Id: "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Employee_Id"
+                            style="@style/edit_text"
+                            android:hint="Enter Employee Id"
+                            android:background="@drawable/edit_txt_design"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/deptnm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/eid"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Department Name : "/>
+
+                        <Spinner
+                            android:id="@+id/Emp_Department_Name"
+                            style="@style/spinner"
+                            android:background="@drawable/edit_txt_design" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/yoj"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/deptnm"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Date of Joining : "/>
+
+                        <DatePicker
+                            android:id="@+id/Emp_Date_of_Joining"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:calendarViewShown="false"
+                            android:datePickerMode="spinner"
+                            android:background="@drawable/edit_txt_design"
+                            android:minDate="01/01/1990"
+                            android:maxDate="31/12/2024" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cemail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/yoj"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Company Email : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Company_Email"
+                            style="@style/edit_text"
+                            android:hint="Enter Company Email"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/jobt"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cemail"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Job Type : "/>
+
+                        <Spinner
+                            android:id="@+id/Emp_Job_Type"
+                            style="@style/spinner"
+                            android:background="@drawable/edit_txt_design" />
+
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BI"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/COMI"
+                android:layout_marginTop="15dp"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/bih"
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Bank Information : "
+                        android:textColor="@color/blue"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ahn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bih"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Account Holder Name: "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Account_Holder_Name"
+                            style="@style/edit_text"
+                            android:hint="Enter Account Holder Name"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bnm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ahn"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Bank Name : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Bank_Name"
+                            style="@style/edit_text"
+                            android:hint="Enter Bank Name"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ban"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bnm"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Bank Account Number : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Account_Number"
+                            style="@style/edit_text"
+                            android:hint="Enter Account Number"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ban"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Bank IFSC Code : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_IFSC_Code"
+                            style="@style/edit_text"
+                            android:hint="Enter IFSC Code"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bic"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Bank Code : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Bank_Code"
+                            style="@style/edit_text"
+                            android:hint="Enter Bank Code"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/brnm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bc"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Branch Name : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Branch"
+                            style="@style/edit_text"
+                            android:hint="Enter Branch Name"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CONI"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BI"
+                android:layout_marginTop="15dp"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="15dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/conih"
+                        style="@style/txt_heading_pro_detail"
+                        android:text="Contact Information : "
+                        android:textColor="@color/blue"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/add"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/conih"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Address : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Address"
+                            style="@style/edit_text"
+                            android:hint="Enter Address"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ct"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/add"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="City : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_City"
+                            style="@style/edit_text"
+                            android:hint="Enter City"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/st"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ct"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="State : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_State"
+                            style="@style/edit_text"
+                            android:hint="Enter State"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/con"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/st"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Country : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Country"
+                            style="@style/edit_text"
+                            android:hint="Enter Country"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/con"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Pin Code : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Pincode"
+                            style="@style/edit_text"
+                            android:hint="Enter Pincode"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/eno"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pin"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Emergency no : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Emergency_no"
+                            style="@style/edit_text"
+                            android:hint="Enter Emergency Number"
+                            android:background="@drawable/edit_txt_design"/>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CONI"
+                android:layout_marginTop="20dp"
+                tools:ignore="MissingConstraints">
+
+                <Button
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_apply"
+                    android:text="Add"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:background="@drawable/button_design"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

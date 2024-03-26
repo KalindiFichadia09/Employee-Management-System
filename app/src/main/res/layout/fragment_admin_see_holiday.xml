@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".salaryslip">
+    tools:context=".admin_see_holiday">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -23,6 +23,7 @@
             android:layout_height="match_parent">
 
             <TableLayout
+                android:id="@+id/table_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:stretchColumns="*">
@@ -35,41 +36,16 @@
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Employee Id"
+                        android:text="Holiday Name"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="Start Date"
+                        android:text="From Date"
                         style="@style/txt_tbl_heading"/>
 
                     <TextView
-                        android:text="End Date"
+                        android:text="To Date"
                         style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Basic Pay"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Allowance"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Deduction"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Adjustment"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Total Amount"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Action"
-                        style="@style/txt_tbl_heading"/>
-
                 </TableRow>
 
                 <View
@@ -78,93 +54,57 @@
                     android:background="#858383" />
 
                 <TableRow>
-
                     <TextView
                         android:text="1"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="21AFPL101"
+                        android:text="Holiday Name"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="01 January-2024"
+                        android:text="From Date"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="31 January-2024"
+                        android:text="To Date"
                         style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 12000"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 400"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 200"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 100"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 12700"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Paid"
-                        android:textColor="#5ED663"
-                        style="@style/txt_tbl_ans"/>
-
                 </TableRow>
 
                 <TableRow>
-
                     <TextView
                         android:text="2"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="21AFPL101"
+                        android:text="Holiday Name"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="01 February-2024"
+                        android:text="From Date"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="29 February-2024"
+                        android:text="To Date"
+                        style="@style/txt_tbl_ans"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="3"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="₹ 12000"
+                        android:text="Holiday Name"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="₹ 400"
+                        android:text="From Date"
                         style="@style/txt_tbl_ans"/>
 
                     <TextView
-                        android:text="₹ 200"
+                        android:text="To Date"
                         style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 100"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="₹ 12700"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Paid"
-                        android:textColor="#5ED663"
-                        style="@style/txt_tbl_ans"/>
-
                 </TableRow>
 
             </TableLayout>

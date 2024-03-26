@@ -6,7 +6,8 @@
     android:padding="16dp"
     android:background="@color/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -29,7 +30,7 @@
                 android:padding="10dp">
 
                 <LinearLayout
-                    android:id="@+id/lt"
+                    android:id="@+id/hn"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -40,141 +41,66 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Leave Type : "/>
-
-                    <Spinner
-                        android:id="@+id/leave_type"
-                        style="@style/spinner"
-                        android:background="@drawable/edit_txt_design" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lc"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/lt"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Leave Type : "/>
-
-                        <Spinner
-                        android:id="@+id/leave_category"
-                        style="@style/spinner"
-                        android:background="@drawable/edit_txt_design" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lsd"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/lc"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Leave Start Date : "/>
-
-                    <DatePicker
-                        android:id="@+id/leave_start_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
-
-<!--                    <EditText-->
-<!--                        android:id="@+id/leave_start_date"-->
-<!--                        style="@style/edit_text"-->
-<!--                        android:hint="Enter Leave Start Date"-->
-<!--                        android:background="@drawable/edit_txt_design"/>-->
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/led"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/lsd"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Leave End Date : "/>
-
-                    <DatePicker
-                        android:id="@+id/leave_end_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/rm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/led"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Remarks : "/>
+                        android:text="Holiday Name : "/>
 
                     <EditText
-                        android:id="@+id/leave_remarks"
+                        android:id="@+id/H_Name"
                         style="@style/edit_text"
-                        android:hint="Enter Remarks"
+                        android:hint="Enter Holiday Name"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/aa"
-                    android:layout_width="match_parent"
+                    android:id="@+id/sd"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rm"
+                    app:layout_constraintTop_toBottomOf="@id/hn"
                     android:layout_marginTop="10dp"
                     tools:ignore="MissingConstraints">
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Add Attachment : " />
+                        android:text="Start Date : "/>
 
-                    <ImageView
+                    <DatePicker
+                        android:id="@+id/H_Start_Date"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:scaleType="fitXY"
-                        android:id="@+id/leave_attachment"
-                        android:contextClickable="true"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:minDate="01/01/2024"
+                        android:maxDate="31/12/2024"
+                        android:background="@drawable/edit_txt_design"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ed"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sd"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
+                        android:text="End Date : "/>
+
+                    <DatePicker
+                        android:id="@+id/H_End_Date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:minDate="01/01/2024"
+                        android:maxDate="31/12/2024"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
@@ -187,7 +113,7 @@
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/aa"
+                    app:layout_constraintTop_toBottomOf="@id/ed"
                     android:layout_marginTop="10dp"
                     tools:ignore="MissingConstraints">
 
@@ -195,7 +121,7 @@
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/btn_apply"
-                        android:text="Apply"
+                        android:text="Add"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:background="@drawable/button_design"

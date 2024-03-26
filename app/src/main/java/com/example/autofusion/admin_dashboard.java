@@ -17,30 +17,30 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class Dashboard extends AppCompatActivity {
-
+public class admin_dashboard extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer_layout;
     NavigationView nav_view;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_admin_deshboard);
 
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
         drawer_layout = findViewById(R.id.drawer_layout);
         nav_view = findViewById(R.id.nav_view);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(Dashboard.this,drawer_layout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer);
+        setSupportActionBar(toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(admin_dashboard.this,drawer_layout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer);
         drawer_layout.addDrawerListener(toggle);
 
         //sync toggle
         toggle.syncState();
 
-        loadFragment(new Dboard());
+        loadFragment(new admin_dboard());
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -48,29 +48,29 @@ public class Dashboard extends AppCompatActivity {
                 int id  = item.getItemId();
 
                 if(id==R.id.dashboard) {
-                    loadFragment(new Dboard());
-                    Toast.makeText(Dashboard.this,"Dashboard", Toast.LENGTH_SHORT).show();
-                } else if (id==R.id.profile) {
-                    loadFragment(new profile());
-                    Toast.makeText(Dashboard.this,"Profile", Toast.LENGTH_SHORT).show();
-                } else if (id==R.id.working_hour) {
-                    loadFragment(new working_hour());
-                    Toast.makeText(Dashboard.this,"Working Hour", Toast.LENGTH_SHORT).show();
+                    loadFragment(new admin_dboard());
+                    Toast.makeText(admin_dashboard.this,"Dashboard", Toast.LENGTH_SHORT).show();
+                } else if (id==R.id.department) {
+                    loadFragment(new admin_manage_departments());
+                    Toast.makeText(admin_dashboard.this,"Departments", Toast.LENGTH_SHORT).show();
+                } else if (id==R.id.employee) {
+                    loadFragment(new admin_manage_employee());
+                    Toast.makeText(admin_dashboard.this,"Employees", Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.task) {
-                    loadFragment(new task());
-                    Toast.makeText(Dashboard.this,"Task", Toast.LENGTH_SHORT).show();
+                    loadFragment(new admin_manage_task());
+                    Toast.makeText(admin_dashboard.this,"Task", Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.leave) {
-                    loadFragment(new leave());
-                    Toast.makeText(Dashboard.this,"Leave", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.salaryslip) {
-                    loadFragment(new salaryslip());
-                    Toast.makeText(Dashboard.this,"Salary-slips", Toast.LENGTH_SHORT).show();
+                    loadFragment(new admin_manage_leave());
+                    Toast.makeText(admin_dashboard.this,"Leave", Toast.LENGTH_SHORT).show();
+                }else if (id==R.id.salary) {
+                    loadFragment(new admin_manage_salary());
+                    Toast.makeText(admin_dashboard.this,"Salary", Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.holiday) {
-                    loadFragment(new holiday());
-                    Toast.makeText(Dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
+                    loadFragment(new admin_manage_holiday());
+                    Toast.makeText(admin_dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
                 } else {
                     startActivity(new Intent(getApplicationContext(), login.class));
-                    Toast.makeText(Dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(admin_dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 drawer_layout.closeDrawer(GravityCompat.START);
