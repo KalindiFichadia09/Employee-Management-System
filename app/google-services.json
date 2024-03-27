@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "317789184745",
+    "project_id": "autofusion-54d89",
+    "storage_bucket": "autofusion-54d89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317789184745:android:f32ee7ebe367f148db0678",
+        "android_client_info": {
+          "package_name": "com.example.autofusion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGxaXd_qliFQ-kHWYc-NmO63BI1mJmQqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
