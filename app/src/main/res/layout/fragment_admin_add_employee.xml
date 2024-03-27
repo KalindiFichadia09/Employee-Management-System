@@ -30,8 +30,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0">
 
-
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -137,6 +135,7 @@
                             android:layout_height="45dp"
                             android:background="@drawable/edit_txt_design"
                             android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:paddingLeft="10dp">
 
                             <RadioButton
@@ -802,7 +801,7 @@
                 <Button
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_apply"
+                    android:id="@+id/Add_Emp"
                     android:text="Add"
                     android:textAlignment="center"
                     android:textSize="20sp"

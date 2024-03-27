@@ -2,6 +2,7 @@ package com.example.autofusion;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,19 +11,39 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.autofusion.databinding.FragmentAdminAddDepartmentBinding;
+import com.example.autofusion.databinding.FragmentAdminAddEmployeeBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class admin_add_employee extends Fragment {
     Spinner Emp_Blood_Group,Emp_Job_Type;
     DatePicker Emp_Birth_Date,Emp_Date_of_Joining;
     String bgs,jts;
     View view;
+    String EmpGender;
+
+    FragmentAdminAddEmployeeBinding emp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_admin_add_employee, container, false);
+       emp = FragmentAdminAddEmployeeBinding.inflate(inflater, container, false);
+       view = emp.getRoot();
+
+        int gen;
+
+        gen = emp.EmpGender.getCheckedRadioButtonId();
+        RadioButton getgen = getView().findViewById(gen);
 
         //Blood Group...
         Emp_Blood_Group=view.findViewById(R.id.Emp_Blood_Group);
@@ -40,6 +61,7 @@ public class admin_add_employee extends Fragment {
             }
         });
 
+        //Birth date
         Emp_Birth_Date=view.findViewById(R.id.Emp_Birth_Date);
         int Emp_Birth_Date_day = Emp_Birth_Date.getDayOfMonth();
         int Emp_Birth_Date_month = Emp_Birth_Date.getMonth();
@@ -69,7 +91,50 @@ public class admin_add_employee extends Fragment {
             }
         });
 
+        FirebaseFirestore afdb = FirebaseFirestore.getInstance();
+        emp.AddEmp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                String EmpFullName = emp.EmpFullName.getText().toString();
+                String EmpFatherName = emp.EmpFatherName.getText().toString();
+                String EmpMotherName = emp.EmpMotherName.getText().toString();
+                String EmpGenger = getgen.getText().toString();
+                String EmpBirthDate = String.valueOf(Emp_Birth_Date_day+"-"+Emp_Birth_Date_month+"-"+Emp_Birth_Date_year);
+                String EmpAaddarNo = emp.EmpAaddarNo.getText().toString();
+                String EmpBloodGroup = emp.EmpBloodGroup.getSelectedItem().toString();
+                String EmpAge = emp.EmpAge.getText().toString();
+                String EmpMobileNo = emp.EmpMobileNo.getText().toString();
+                String EmpEmail = emp.EmpEmail.getText().toString();
+
+                String EmpEmployeeId = emp.EmpEmployeeId.getText().toString();
+                String EmpDepartmentName = emp.EmpDepartmentName.getSelectedItem().toString();
+                
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+//                String EmpEmail = emp.EmpEmail.getText().toString();
+
+
+                //Insert
+                Map<String,Object> data = new HashMap<>();
+                data.put("Emp_Full_Name",EmpFullName);
+                data.put("Emp_Father_Name",EmpFatherName);
+                afdb.collection("Department").document(EmpFullName).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getActivity(), "Added Successfully", Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(getActivity(),MainActivity.class));
+                        }
+                    }
+                });
+            }
+        });
         return view;
     }
 }

@@ -12,95 +12,80 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="241dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginLeft="15dp"
-                android:padding="10dp">
 
-                <LinearLayout
-                    android:id="@+id/id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/txtdepId"
+                style="@style/txt_heading_pro_detail"
+                android:layout_marginTop="20dp"
+                android:text="Department Id : "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.033"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Department Id : "/>
+            <EditText
+                android:id="@+id/Dept_Id"
+                style="@style/edit_text"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edit_txt_design"
+                android:hint="Enter Department Id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtdepId" />
 
-                    <EditText
-                        android:id="@+id/Dept_Id"
-                        style="@style/edit_text"
-                        android:hint="Enter Department Id"
-                        android:background="@drawable/edit_txt_design"/>
 
-                </LinearLayout>
+            <TextView
+                android:id="@+id/txtdepName"
+                style="@style/txt_heading_pro_detail"
+                android:layout_marginTop="20dp"
+                android:text="Department Name : "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Dept_Id" />
 
-                <LinearLayout
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/id"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
 
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Department Name : "/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Add_Dept"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_design"
+                android:text="Add"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Dept_Name" />
 
-                    <EditText
-                        android:id="@+id/Dept_Name"
-                        style="@style/edit_text"
-                        android:hint="Enter Department Name"
-                        android:background="@drawable/edit_txt_design"/>
+            <EditText
+                android:id="@+id/Dept_Name"
+                style="@style/edit_text"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edit_txt_design"
+                android:hint="Enter Department Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtdepName" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <Button
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btn_apply"
-                        android:text="Add"
-                        android:textAlignment="center"
-                        android:textSize="25sp"
-                        android:background="@drawable/button_design"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ScrollView>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
