@@ -30,7 +30,7 @@
                 android:padding="10dp">
 
                 <LinearLayout
-                    android:id="@+id/eid"
+                    android:id="@+id/id"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -41,10 +41,33 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
+                        android:text="Task Id : "/>
+
+                    <EditText
+                        android:id="@+id/Id"
+                        style="@style/edit_text"
+                        android:hint="Enter Id"
+                        android:background="@drawable/edit_txt_design"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/eid"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/id"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        style="@style/txt_heading_pro_detail"
                         android:text="Employee Id : "/>
 
                     <EditText
-                        android:id="@+id/At_Emp_Id"
+                        android:id="@+id/Emp_Id"
                         style="@style/edit_text"
                         android:hint="Enter Employee Id"
                         android:background="@drawable/edit_txt_design"/>
@@ -67,7 +90,7 @@
                         android:text="Task Description : "/>
 
                     <EditText
-                        android:id="@+id/At_Task_Description"
+                        android:id="@+id/Task_Description"
                         style="@style/edit_text"
                         android:hint="Enter Task Description"
                         android:background="@drawable/edit_txt_design"/>
@@ -89,15 +112,12 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="End Date : "/>
 
-                    <DatePicker
-                        android:id="@+id/At_End_Date"
+                    <TextView
+                        android:id="@+id/End_Date"
+                        style="@style/edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
+                        android:background="@drawable/edit_txt_design"
+                        android:text="DD/MM/YYYY" />
 
                 </LinearLayout>
 
@@ -116,7 +136,7 @@
                     <Button
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_apply"
+                        android:id="@+id/btn_assign"
                         android:text="Assign"
                         android:textAlignment="center"
                         android:textSize="20sp"

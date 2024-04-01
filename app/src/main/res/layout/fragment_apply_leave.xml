@@ -86,21 +86,12 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="Leave Start Date : "/>
 
-                    <DatePicker
+                    <TextView
                         android:id="@+id/leave_start_date"
+                        style="@style/edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
-
-<!--                    <EditText-->
-<!--                        android:id="@+id/leave_start_date"-->
-<!--                        style="@style/edit_text"-->
-<!--                        android:hint="Enter Leave Start Date"-->
-<!--                        android:background="@drawable/edit_txt_design"/>-->
+                        android:background="@drawable/edit_txt_design"
+                        android:text="DD/MM/YYYY" />
 
                 </LinearLayout>
 
@@ -119,15 +110,12 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="Leave End Date : "/>
 
-                    <DatePicker
+                    <TextView
                         android:id="@+id/leave_end_date"
+                        style="@style/edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
+                        android:background="@drawable/edit_txt_design"
+                        android:text="DD/MM/YYYY" />
 
                 </LinearLayout>
 

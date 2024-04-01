@@ -63,6 +63,7 @@
                         <EditText
                             android:id="@+id/Emp_Full_Name"
                             style="@style/edit_text"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Full Name" />
 
@@ -86,6 +87,7 @@
                         <EditText
                             android:id="@+id/Emp_Father_Name"
                             style="@style/edit_text"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Father Name" />
 
@@ -109,6 +111,7 @@
                         <EditText
                             android:id="@+id/Emp_Mother_Name"
                             style="@style/edit_text"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Mother Name" />
 
@@ -157,6 +160,7 @@
                         android:id="@+id/dob"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -168,15 +172,12 @@
                             style="@style/txt_heading_pro_detail"
                             android:text="Date of Birth : " />
 
-                        <DatePicker
+                        <TextView
                             android:id="@+id/Emp_Birth_Date"
+                            style="@style/edit_text"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:background="@drawable/edit_txt_design"
-                            android:calendarViewShown="false"
-                            android:datePickerMode="spinner"
-                            android:maxDate="31/12/2024"
-                            android:minDate="01/01/1990" />
+                            android:text="DD/MM/YYYY" />
 
                     </LinearLayout>
 
@@ -198,6 +199,8 @@
                         <EditText
                             android:id="@+id/Emp_Aaddar_no"
                             style="@style/edit_text"
+                            android:inputType="number"
+                            android:maxLength="12"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Aaddhar Number" />
 
@@ -243,6 +246,7 @@
                         <EditText
                             android:id="@+id/Emp_Age"
                             style="@style/edit_text"
+                            android:inputType="number"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Age" />
 
@@ -266,6 +270,8 @@
                         <EditText
                             android:id="@+id/Emp_Mobile_no"
                             style="@style/edit_text"
+                            android:inputType="number"
+                            android:maxLength="10"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Mobile Number" />
 
@@ -289,6 +295,7 @@
                         <EditText
                             android:id="@+id/Emp_Email"
                             style="@style/edit_text"
+                            android:inputType="textEmailAddress"
                             android:background="@drawable/edit_txt_design"
                             android:hint="Enter Email" />
 
@@ -343,6 +350,7 @@
                         <EditText
                             android:id="@+id/Emp_Employee_Id"
                             style="@style/edit_text"
+                            android:inputType="text"
                             android:hint="Enter Employee Id"
                             android:background="@drawable/edit_txt_design"/>
 
@@ -386,15 +394,12 @@
                             style="@style/txt_heading_pro_detail"
                             android:text="Date of Joining : "/>
 
-                        <DatePicker
-                            android:id="@+id/Emp_Date_of_Joining"
+                        <TextView
+                            android:id="@+id/Emp_Join_Date"
+                            style="@style/edit_text"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:calendarViewShown="false"
-                            android:datePickerMode="spinner"
                             android:background="@drawable/edit_txt_design"
-                            android:minDate="01/01/1990"
-                            android:maxDate="31/12/2024" />
+                            android:text="DD/MM/YYYY" />
 
                     </LinearLayout>
 
@@ -416,6 +421,7 @@
                         <EditText
                             android:id="@+id/Emp_Company_Email"
                             style="@style/edit_text"
+                            android:inputType="textEmailAddress"
                             android:hint="Enter Company Email"
                             android:background="@drawable/edit_txt_design"/>
 
@@ -440,6 +446,31 @@
                             android:id="@+id/Emp_Job_Type"
                             style="@style/spinner"
                             android:background="@drawable/edit_txt_design" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pwd"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jobt"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            style="@style/txt_heading_pro_detail"
+                            android:text="Password : "/>
+
+                        <EditText
+                            android:id="@+id/Emp_Password"
+                            style="@style/edit_text"
+                            android:hint="Enter Password"
+                            android:inputType="text"
+                            android:maxLength="10"
+                            android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
 
@@ -494,6 +525,7 @@
                             android:id="@+id/Emp_Account_Holder_Name"
                             style="@style/edit_text"
                             android:hint="Enter Account Holder Name"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -517,6 +549,7 @@
                             android:id="@+id/Emp_Bank_Name"
                             style="@style/edit_text"
                             android:hint="Enter Bank Name"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -540,6 +573,8 @@
                             android:id="@+id/Emp_Account_Number"
                             style="@style/edit_text"
                             android:hint="Enter Account Number"
+                            android:inputType="number"
+                            android:maxLength="12"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -563,6 +598,8 @@
                             android:id="@+id/Emp_IFSC_Code"
                             style="@style/edit_text"
                             android:hint="Enter IFSC Code"
+                            android:inputType="text"
+                            android:maxLength="12"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -586,6 +623,8 @@
                             android:id="@+id/Emp_Bank_Code"
                             style="@style/edit_text"
                             android:hint="Enter Bank Code"
+                            android:inputType="text"
+                            android:maxLength="6"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -606,9 +645,10 @@
                             android:text="Branch Name : "/>
 
                         <EditText
-                            android:id="@+id/Emp_Branch"
+                            android:id="@+id/Emp_Branch_Name"
                             style="@style/edit_text"
                             android:hint="Enter Branch Name"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -663,6 +703,7 @@
                             android:id="@+id/Emp_Address"
                             style="@style/edit_text"
                             android:hint="Enter Address"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -686,6 +727,7 @@
                             android:id="@+id/Emp_City"
                             style="@style/edit_text"
                             android:hint="Enter City"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -709,6 +751,7 @@
                             android:id="@+id/Emp_State"
                             style="@style/edit_text"
                             android:hint="Enter State"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -732,6 +775,7 @@
                             android:id="@+id/Emp_Country"
                             style="@style/edit_text"
                             android:hint="Enter Country"
+                            android:inputType="text"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -755,6 +799,8 @@
                             android:id="@+id/Emp_Pincode"
                             style="@style/edit_text"
                             android:hint="Enter Pincode"
+                            android:inputType="number"
+                            android:maxLength="6"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>
@@ -778,6 +824,8 @@
                             android:id="@+id/Emp_Emergency_no"
                             style="@style/edit_text"
                             android:hint="Enter Emergency Number"
+                            android:inputType="number"
+                            android:maxLength="10"
                             android:background="@drawable/edit_txt_design"/>
 
                     </LinearLayout>

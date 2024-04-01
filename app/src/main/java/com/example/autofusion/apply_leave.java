@@ -3,9 +3,8 @@ package com.example.autofusion;
 import static android.app.Activity.RESULT_OK;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -31,6 +30,8 @@ import com.example.autofusion.databinding.FragmentApplyLeaveBinding;
 
 import org.w3c.dom.Text;
 
+import java.util.Calendar;
+
 public class apply_leave extends Fragment {
     Spinner leave_type,leave_category;
     String v1,v2;
@@ -38,7 +39,7 @@ public class apply_leave extends Fragment {
     ImageView leave_attachment;
     Button btn_apply;
     EditText leave_remarks;
-    DatePicker leave_start_date,leave_end_date;
+    TextView leave_start_date,leave_end_date;
     TextView txt_ans;
     private final int GALLERY_REQUEST_CODE = 1000;
 
@@ -57,14 +58,63 @@ public class apply_leave extends Fragment {
         leave_attachment = rootview.findViewById(R.id.leave_attachment);
         btn_apply = rootview.findViewById(R.id.btn_apply);
 
-        int leave_start_date_day = leave_start_date.getDayOfMonth();
-        int leave_start_date_month = leave_start_date.getMonth();
-        int leave_start_date_year = leave_start_date.getYear();
+        leave_start_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+                int day = c.get(Calendar.DAY_OF_MONTH);
+
+                // on below line we are creating a variable for date picker dialog.
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        requireContext(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @SuppressLint("SetTextI18n")
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                leave_start_date.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            }
+                        },
+                        year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        leave_end_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+                int day = c.get(Calendar.DAY_OF_MONTH);
+
+                // on below line we are creating a variable for date picker dialog.
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        requireContext(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @SuppressLint("SetTextI18n")
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                leave_end_date.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            }
+                        },
+                        year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
 
         btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Selected date: " + leave_start_date_day + "/" + (leave_start_date_month + 1) + "/" + leave_start_date_year , Toast.LENGTH_SHORT).show();
+
+
+
             }
         });
 

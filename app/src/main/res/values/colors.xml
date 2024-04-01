@@ -15,4 +15,6 @@
     <color name="hint_clr">#61414A50</color>
     <color name="update">#5ED663</color>
     <color name="remove">#C8F35D57</color>
+    <color name="tbl_heading">#E6E1E1</color>
+    <color name="tbl_ans">#757575</color>
 </resources>

@@ -1,106 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:background="@color/background"
     tools:context=".admin_show_department">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        app:cardCornerRadius="20dp"
-        tools:ignore="MissingConstraints">
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
             <TableLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/tablelayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/table_background"
                 android:stretchColumns="*">
-
-                <TableRow
-                    android:background="#E6E1E1">
-
-                    <TextView
-                        android:text="Id"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Department Name"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Update"
-                        style="@style/txt_tbl_heading"/>
-
-                    <TextView
-                        android:text="Delete"
-                        style="@style/txt_tbl_heading"/>
-
-                </TableRow>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="1dp"
-                    android:background="#858383" />
-
-                <TableRow>
-
-                    <TextView
-                        android:text="1"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Production"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Update"
-                        android:textColor="@color/update"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Update"
-                        android:textColor="@color/remove"
-                        style="@style/txt_tbl_ans"/>
-
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:text="2"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Sales"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Update"
-                        android:textColor="@color/update"
-                        style="@style/txt_tbl_ans"/>
-
-                    <TextView
-                        android:text="Update"
-                        android:textColor="@color/remove"
-                        style="@style/txt_tbl_ans"/>
-
-                </TableRow>
 
             </TableLayout>
 
-        </HorizontalScrollView>
+        </ScrollView>
 
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

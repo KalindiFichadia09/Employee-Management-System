@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.389" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/Email"
         android:layout_width="249dp"
         android:layout_height="48dp"
         android:background="@drawable/edit_txt_design"
@@ -54,13 +54,14 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/Password"
         android:layout_width="251dp"
         android:layout_height="53dp"
         android:background="@drawable/edit_txt_design"
         android:gravity="center"
         android:hint="Enter Password"
         android:textColorHint="@color/hint_clr"
+        android:inputType="textEmailAddress"
         android:textSize="25dp"
         android:textColor="@color/btn_login"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/Password"
         app:layout_constraintVertical_bias="0.1"/>
 
     <TextView
