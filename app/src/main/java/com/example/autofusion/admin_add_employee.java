@@ -181,37 +181,37 @@ public class admin_add_employee extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String EmpFullName = emp.EmpFullName.getText().toString();
-                String EmpFatherName = emp.EmpFatherName.getText().toString();
-                String EmpMotherName = emp.EmpMotherName.getText().toString();
+                String EmpFullName = emp.EmpFullName.getText().toString().trim();
+                String EmpFatherName = emp.EmpFatherName.getText().toString().trim();
+                String EmpMotherName = emp.EmpMotherName.getText().toString().trim();
                 String EmpGender = Emp_Gen.toString();
                 String EmpBirthDate = Emp_Birth_Date.getText().toString();
-                String EmpAaddarNo = emp.EmpAaddarNo.getText().toString();
+                String EmpAaddarNo = emp.EmpAaddarNo.getText().toString().trim();
                 String EmpBloodGroup = emp.EmpBloodGroup.getSelectedItem().toString();
-                String EmpAge = emp.EmpAge.getText().toString();
-                String EmpMobileNo = emp.EmpMobileNo.getText().toString();
-                String EmpEmail = emp.EmpEmail.getText().toString();
+                String EmpAge = emp.EmpAge.getText().toString().trim();
+                String EmpMobileNo = emp.EmpMobileNo.getText().toString().trim();
+                String EmpEmail = emp.EmpEmail.getText().toString().trim();
 
-                String EmpEmployeeId = emp.EmpEmployeeId.getText().toString();
+                String EmpEmployeeId = emp.EmpEmployeeId.getText().toString().trim();
                 String EmpDepartmentName = emp.EmpDepartmentName.getSelectedItem().toString();
                 String EmpJoinDate = emp.EmpJoinDate.getText().toString();
-                String EmpCompanyEmail = emp.EmpCompanyEmail.getText().toString();
+                String EmpCompanyEmail = emp.EmpCompanyEmail.getText().toString().trim();
                 String EmpJobType = emp.EmpJobType.getSelectedItem().toString();
-                String EmpPassword = emp.EmpPassword.getText().toString();
+                String EmpPassword = emp.EmpPassword.getText().toString().trim();
 
-                String EmpAccountHolderName = emp.EmpAccountHolderName.getText().toString();
-                String EmpBankName = emp.EmpBankName.getText().toString();
-                String EmpAccountNumber = emp.EmpAccountNumber.getText().toString();
-                String EmpIFSCCode = emp.EmpIFSCCode.getText().toString();
-                String EmpBankCode = emp.EmpBankCode.getText().toString();
-                String EmpBranchName = emp.EmpBranchName.getText().toString();
+                String EmpAccountHolderName = emp.EmpAccountHolderName.getText().toString().trim();
+                String EmpBankName = emp.EmpBankName.getText().toString().trim();
+                String EmpAccountNumber = emp.EmpAccountNumber.getText().toString().trim();
+                String EmpIFSCCode = emp.EmpIFSCCode.getText().toString().trim();
+                String EmpBankCode = emp.EmpBankCode.getText().toString().trim();
+                String EmpBranchName = emp.EmpBranchName.getText().toString().trim();
 
-                String EmpAddress = emp.EmpAddress.getText().toString();
-                String EmpCity = emp.EmpCity.getText().toString();
-                String EmpState = emp.EmpState.getText().toString();
-                String EmpCountry = emp.EmpCountry.getText().toString();
-                String EmpPincode = emp.EmpPincode.getText().toString();
-                String EmpEmergencyNo = emp.EmpEmergencyNo.getText().toString();
+                String EmpAddress = emp.EmpAddress.getText().toString().trim();
+                String EmpCity = emp.EmpCity.getText().toString().trim();
+                String EmpState = emp.EmpState.getText().toString().trim();
+                String EmpCountry = emp.EmpCountry.getText().toString().trim();
+                String EmpPincode = emp.EmpPincode.getText().toString().trim();
+                String EmpEmergencyNo = emp.EmpEmergencyNo.getText().toString().trim();
 
                 //Insert
                 Map<String,Object> data = new HashMap<>();

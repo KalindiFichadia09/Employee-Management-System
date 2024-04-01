@@ -36,65 +36,79 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bind = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(bind.getRoot());
-
         afdb = FirebaseFirestore.getInstance();
-        sp =getSharedPreferences("AutoFusionLogin",MODE_PRIVATE);
+        sp = getSharedPreferences("AutoFusionLogin",MODE_PRIVATE);
+        if(sp.getString("logVar","").equals("user")){
+            startActivity(new Intent(this,Dashboard.class));
+        }
+        if(sp.getString("logVar","").equals("admin")){
+            startActivity(new Intent(this,admin_dashboard.class));
+        }
+        spe = sp.edit();
+            bind.login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        bind.login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    try {
 
-                String unm = bind.Email.getText().toString();
-                String pwd = bind.Password.getText().toString();
+                        String unm = bind.Email.getText().toString().trim();
+                        String pwd = bind.Password.getText().toString().trim();
 
-                DocumentReference ref = afdb.collection("Employee").document(unm);
-                ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                        if(task.isSuccessful()){
-                            DocumentSnapshot document = task.getResult();
-                            if(document.exists()){
-                                String Cmp_Email = document.getString("EmpCompanyEmail");
-                                String Password = document.getString("EmpPassword");
-
-                                if(unm.equals(Cmp_Email) && pwd.equals(Password)){
-
-                                    spe = sp.edit();
-
-                                    spe.putString("Username",unm);
-                                    spe.putString("Password",pwd);
-
-                                    spe.commit();
-
-                                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
-
-                                    Toast.makeText(login.this, "Logedin Successfully", Toast.LENGTH_SHORT).show();
-                                }
-                                else {
-                                    Toast.makeText(login.this, "Invalid Username and Password", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                            else {
-                                Toast.makeText(login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                            }
+                        if (unm.isEmpty() && pwd.isEmpty()) {
+                            Toast.makeText(login.this, "Username or Password is Empty ", Toast.LENGTH_SHORT).show();
                         }
 
+                        DocumentReference ref = afdb.collection("Employee").document(unm);
+                        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        String Cmp_Email = document.getString("EmpCompanyEmail");
+                                        String Password = document.getString("EmpPassword");
+
+                                        if (unm.equals(Cmp_Email) && pwd.equals(Password)) {
+
+                                            spe.putString("logVar", "user");
+                                            spe.putString("Username", unm);
+                                            spe.putString("Password", pwd);
+                                            spe.apply();
+
+                                            startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                                            Toast.makeText(login.this, "Logedin Successfully", Toast.LENGTH_SHORT).show();
+
+                                        } else {
+                                            Toast.makeText(login.this, "Invalid Username and Password", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }else if (unm.equals("admin") && pwd.equals("admin123")) {
+
+                                        spe.putString("logVar", "admin");
+                                        spe.putString("Username", unm);
+                                        spe.putString("Password", pwd);
+                                        spe.apply();
+
+                                        Toast.makeText(login.this, "Login in Admin", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), admin_dashboard.class));
+
+                                } else {
+                                    Toast.makeText(login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
-                });
-            }
-        });
+                    catch (Exception e){
+                        Toast.makeText(login.this, "Email and password are empty", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         bind.fp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), forgot_password.class));
-            }
-        });
-        bind.admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), admin_dashboard.class));
             }
         });
     }

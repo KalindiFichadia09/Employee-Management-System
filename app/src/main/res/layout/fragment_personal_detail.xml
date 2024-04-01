@@ -43,9 +43,8 @@
                         android:text="Full Name : " />
 
                     <TextView
-                        android:id="@+id/txt_fnm"
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Johny Eric Brown"/>
+                        android:id="@+id/Emp_Full_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -65,8 +64,8 @@
                         android:text="Father Name : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Eric Brown" />
+                        android:id="@+id/Emp_Father_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -86,8 +85,8 @@
                         android:text="Mother Name : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Renee Brown" />
+                        android:id="@+id/Emp_Mother_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -107,8 +106,8 @@
                         android:text="Gender : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Male" />
+                        android:id="@+id/Emp_Gender"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -128,8 +127,8 @@
                         android:text="Date of Birth : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="23/12/2000" />
+                        android:id="@+id/Emp_Date_of_Birth"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -149,8 +148,8 @@
                         android:text="Aadhar Number : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="1234 5678 9123" />
+                        android:id="@+id/Emp_Adhar_no"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -170,8 +169,8 @@
                         android:text="Blood Group : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="B+" />
+                        android:id="@+id/Emp_Blood_Group"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -191,8 +190,8 @@
                         android:text="Age : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="24" />
+                        android:id="@+id/Emp_Age"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -212,8 +211,8 @@
                         android:text="Mobile Number : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="+91 9929478288" />
+                        android:id="@+id/Emp_Mobile_no"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -233,8 +232,8 @@
                         android:text="Email : " />
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="johnny.brown23@gmail.com" />
+                        android:id="@+id/Emp_Email"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 

@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,14 +21,17 @@ import com.google.android.material.navigation.NavigationView;
 public class admin_dashboard extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer_layout;
+    SharedPreferences sp;
+    SharedPreferences.Editor spe;
     NavigationView nav_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_deshboard);
 
-        toolbar = findViewById(R.id.toolbar);
+        sp = getSharedPreferences("AutoFusionLogin",MODE_PRIVATE);
 
+        toolbar = findViewById(R.id.toolbar);
 
         drawer_layout = findViewById(R.id.drawer_layout);
         nav_view = findViewById(R.id.nav_view);
@@ -69,6 +73,9 @@ public class admin_dashboard extends AppCompatActivity {
                     loadFragment(new admin_manage_holiday());
                     Toast.makeText(admin_dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
                 } else {
+                    spe=sp.edit();
+                    spe.remove("logVar");
+                    spe.apply();
                     startActivity(new Intent(getApplicationContext(), login.class));
                     Toast.makeText(admin_dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
                     finish();
