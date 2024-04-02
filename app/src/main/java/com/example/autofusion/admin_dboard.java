@@ -7,58 +7,83 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link admin_dboard#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Text;
+
 public class admin_dboard extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public admin_dboard() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment admin_dboard.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static admin_dboard newInstance(String param1, String param2) {
-        admin_dboard fragment = new admin_dboard();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    TextView tot_emp,tot_leave,tot_dept;
+    FirebaseFirestore afdb;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_dboard, container, false);
+        view = inflater.inflate(R.layout.fragment_admin_dboard, container, false);
+
+        tot_emp = view.findViewById(R.id.employee);
+        tot_leave = view.findViewById(R.id.leave);
+        tot_dept = view.findViewById(R.id.department);
+
+        afdb = FirebaseFirestore.getInstance();
+        CollectionReference collectionRefemp = afdb.collection("Employee");
+
+        // Query for all documents in the collection
+        collectionRefemp.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                // Get the number of documents in the result set
+                int count = queryDocumentSnapshots.size();
+
+                // Convert count to string before setting to TextView
+                String totalCount = String.valueOf(count);
+
+                tot_emp.setText(totalCount);
+
+            }
+        });
+
+        CollectionReference collectionRefleave = afdb.collection("Leaves");
+
+        // Query for all documents in the collection
+        collectionRefleave.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                // Get the number of documents in the result set
+                int count = queryDocumentSnapshots.size();
+
+                // Convert count to string before setting to TextView
+                String totalCount = String.valueOf(count);
+
+                tot_leave.setText(totalCount);
+
+            }
+        });
+
+        CollectionReference collectionRefdept = afdb.collection("Department");
+
+        // Query for all documents in the collection
+        collectionRefdept.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                // Get the number of documents in the result set
+                int count = queryDocumentSnapshots.size();
+
+                // Convert count to string before setting to TextView
+                String totalCount = String.valueOf(count);
+
+                tot_dept.setText(totalCount);
+
+            }
+        });
+
+        return view;
     }
 }

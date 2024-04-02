@@ -122,10 +122,9 @@
                         tools:ignore="MissingConstraints" />
 
                     <TextView
-                        android:id="@+id/attendance"
+                        android:id="@+id/employee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="100"
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="30sp"
@@ -188,7 +187,6 @@
                         android:id="@+id/leave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="30sp"
@@ -238,7 +236,7 @@
                         android:id="@+id/title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Working Details"
+                        android:text="Total Departments"
                         android:textAlignment="center"
                         android:textSize="25sp"
                         app:layout_constraintHorizontal_bias="0.1"
@@ -249,10 +247,9 @@
                         tools:ignore="MissingConstraints" />
 
                     <TextView
-                        android:id="@+id/detail"
+                        android:id="@+id/department"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
                         android:textAlignment="center"
                         android:textColor="@color/blue"
                         android:textSize="30sp"

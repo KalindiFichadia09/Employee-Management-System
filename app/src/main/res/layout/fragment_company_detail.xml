@@ -43,8 +43,8 @@
                         android:text="Employee Id: "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="21AFL10101"/>
+                        android:id="@+id/Emp_Id"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -64,8 +64,8 @@
                         android:text="Department Name : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Production"/>
+                        android:id="@+id/Emp_Department"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -85,8 +85,8 @@
                         android:text="Year of Joining : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="15/01/2021"/>
+                        android:id="@+id/Emp_Join_Date"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -106,8 +106,8 @@
                         android:text="Company Email : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="johnny.brown@autofusion.in"/>
+                        android:id="@+id/Emp_Companu_Email"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -127,8 +127,8 @@
                         android:text="Job Type : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Permenent Job" />
+                        android:id="@+id/Emp_Job_Type"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 

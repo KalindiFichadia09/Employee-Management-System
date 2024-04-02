@@ -46,7 +46,7 @@ public class admin_see_task extends Fragment {
         rowHeader.setBackgroundColor(getResources().getColor(R.color.tbl_heading));
         rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText = {"ID", "Emp Id","Description","End Date"};
+        String[] headerText = {"ID", "Employee Email","Description","End Date"};
         for (String c : headerText) {
             TextView tv = new TextView(requireContext());
             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
@@ -69,16 +69,15 @@ public class admin_see_task extends Fragment {
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot document : task.getResult()) {
                         String Id = document.getString("Id");
-                        String EmpId = document.getString("T_Emp_Id");
+                        String EmpEmail = document.getString("T_Emp_Email");
                         String TDescription = document.getString("T_Description");
                         String TEndDate = document.getString("T_End_Date");
-                        String ud = "Edit";
-                        String dlt = "Remove";
-                        // data rows
+
                         TableRow row = new TableRow(requireContext());
                         row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                                 TableLayout.LayoutParams.WRAP_CONTENT));
-                        String[] colText = {Id, EmpId,TDescription,TEndDate};
+                        String[] colText = {Id, EmpEmail,TDescription,TEndDate};
+
                         for (String text : colText) {
                             TextView tv = new TextView(requireContext());
                             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,

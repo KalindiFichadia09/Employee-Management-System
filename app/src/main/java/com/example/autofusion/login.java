@@ -38,13 +38,11 @@ public class login extends AppCompatActivity {
         setContentView(bind.getRoot());
         afdb = FirebaseFirestore.getInstance();
         sp = getSharedPreferences("AutoFusionLogin",MODE_PRIVATE);
-        if(sp.getString("logVar","").equals("user")){
+        if(sp.getString("logVar","").equals("KF")){
             startActivity(new Intent(this,Dashboard.class));
         }
-        if(sp.getString("logVar","").equals("admin")){
-            startActivity(new Intent(this,admin_dashboard.class));
-        }
-        spe = sp.edit();
+
+
             bind.login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -53,10 +51,6 @@ public class login extends AppCompatActivity {
 
                         String unm = bind.Email.getText().toString().trim();
                         String pwd = bind.Password.getText().toString().trim();
-
-                        if (unm.isEmpty() && pwd.isEmpty()) {
-                            Toast.makeText(login.this, "Username or Password is Empty ", Toast.LENGTH_SHORT).show();
-                        }
 
                         DocumentReference ref = afdb.collection("Employee").document(unm);
                         ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -71,31 +65,29 @@ public class login extends AppCompatActivity {
 
                                         if (unm.equals(Cmp_Email) && pwd.equals(Password)) {
 
-                                            spe.putString("logVar", "user");
+                                            spe = sp.edit();
+
+                                            spe.putString("logVar", "KF");
                                             spe.putString("Username", unm);
                                             spe.putString("Password", pwd);
-                                            spe.apply();
 
                                             startActivity(new Intent(getApplicationContext(), Dashboard.class));
                                             Toast.makeText(login.this, "Logedin Successfully", Toast.LENGTH_SHORT).show();
+                                            spe.commit();
 
                                         } else {
                                             Toast.makeText(login.this, "Invalid Username and Password", Toast.LENGTH_SHORT).show();
                                         }
-                                    }
-                                }else if (unm.equals("admin") && pwd.equals("admin123")) {
-
-                                        spe.putString("logVar", "admin");
-                                        spe.putString("Username", unm);
-                                        spe.putString("Password", pwd);
-                                        spe.apply();
-
+                                    } else if (unm.equals("admin") && pwd.equals("admin123")) {
                                         Toast.makeText(login.this, "Login in Admin", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(), admin_dashboard.class));
-
-                                } else {
-                                    Toast.makeText(login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                    } else if (unm.isEmpty() && pwd.isEmpty()) {
+                                        Toast.makeText(login.this, "Username or Password is Empty ", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
+
                             }
                         });
                     }
@@ -104,6 +96,7 @@ public class login extends AppCompatActivity {
                     }
                 }
             });
+
 
         bind.fp.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,12 +1,18 @@
 package com.example.autofusion;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +36,8 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +57,9 @@ public class admin_add_employee extends Fragment {
     private List<String> departmentNamesList;
     private ArrayAdapter<String> adapter;
     FirebaseFirestore afdb = FirebaseFirestore.getInstance();
+    private static final int REQUEST_IMAGE_PICK = 1;
+    private StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+    Uri imageUri;
     long dob;
     FragmentAdminAddEmployeeBinding emp;
 
@@ -118,7 +129,15 @@ public class admin_add_employee extends Fragment {
             }
         });
 
+        //Image
+        emp.EmpImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                selectImageFromGallery();
+
+            }
+        });
 
         //Date_of_Joining
         Emp_Join_Date=view.findViewById(R.id.Emp_Join_Date);
@@ -213,49 +232,62 @@ public class admin_add_employee extends Fragment {
                 String EmpPincode = emp.EmpPincode.getText().toString().trim();
                 String EmpEmergencyNo = emp.EmpEmergencyNo.getText().toString().trim();
 
-                //Insert
-                Map<String,Object> data = new HashMap<>();
-                data.put("EmpFullName",EmpFullName);
-                data.put("EmpFatherName",EmpFatherName);
-                data.put("EmpMotherName",EmpMotherName);
-                data.put("EmpGender",EmpGender);
-                data.put("EmpBirthDate",EmpBirthDate);
-                data.put("EmpAaddarNo",EmpAaddarNo);
-                data.put("EmpBloodGroup",EmpBloodGroup);
-                data.put("EmpAge",EmpAge);
-                data.put("EmpMobileNo",EmpMobileNo);
-                data.put("EmpEmail",EmpEmail);
+                if (imageUri != null) {
+                     StorageReference imageRef = storageRef.child("images/" + System.currentTimeMillis() + ".jpg");
+                    imageRef.putFile(imageUri)
+                            .addOnSuccessListener(taskSnapshot -> {
+                                imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                                    String imageUrl = uri.toString();
 
-                data.put("EmpEmployeeId",EmpEmployeeId);
-                data.put("EmpDepartmentName",EmpDepartmentName);
-                data.put("EmpJoinDate",EmpJoinDate);
-                data.put("EmpCompanyEmail",EmpCompanyEmail);
-                data.put("EmpJobType",EmpJobType);
-                data.put("EmpPassword",EmpPassword);
+                                    //Insert
+                                    Map<String, Object> data = new HashMap<>();
+                                    data.put("EmpFullName", EmpFullName);
+                                    data.put("EmpFatherName", EmpFatherName);
+                                    data.put("EmpMotherName", EmpMotherName);
+                                    data.put("EmpGender", EmpGender);
+                                    data.put("EmpBirthDate", EmpBirthDate);
+                                    data.put("EmpAaddarNo", EmpAaddarNo);
+                                    data.put("EmpBloodGroup", EmpBloodGroup);
+                                    data.put("EmpAge", EmpAge);
+                                    data.put("EmpMobileNo", EmpMobileNo);
+                                    data.put("EmpEmail", EmpEmail);
+                                    data.put("EmpImage",imageUrl);
 
-                data.put("EmpAccountHolderName",EmpAccountHolderName);
-                data.put("EmpBankName",EmpBankName);
-                data.put("EmpAccountNumber",EmpAccountNumber);
-                data.put("EmpIFSCCode",EmpIFSCCode);
-                data.put("EmpBankCode",EmpBankCode);
-                data.put("EmpBranchName",EmpBranchName);
+                                    data.put("EmpEmployeeId", EmpEmployeeId);
+                                    data.put("EmpDepartmentName", EmpDepartmentName);
+                                    data.put("EmpJoinDate", EmpJoinDate);
+                                    data.put("EmpCompanyEmail", EmpCompanyEmail);
+                                    data.put("EmpJobType", EmpJobType);
+                                    data.put("EmpPassword", EmpPassword);
 
-                data.put("EmpAddress",EmpAddress);
-                data.put("EmpCity",EmpCity);
-                data.put("EmpState",EmpState);
-                data.put("EmpCountry",EmpCountry);
-                data.put("EmpPincode",EmpPincode);
-                data.put("EmpEmergencyNo",EmpEmergencyNo);
+                                    data.put("EmpAccountHolderName", EmpAccountHolderName);
+                                    data.put("EmpBankName", EmpBankName);
+                                    data.put("EmpAccountNumber", EmpAccountNumber);
+                                    data.put("EmpIFSCCode", EmpIFSCCode);
+                                    data.put("EmpBankCode", EmpBankCode);
+                                    data.put("EmpBranchName", EmpBranchName);
 
-                afdb.collection("Employee").document(EmpCompanyEmail).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getActivity(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(getActivity(),MainActivity.class));
-                        }
-                    }
-                });
+                                    data.put("EmpAddress", EmpAddress);
+                                    data.put("EmpCity", EmpCity);
+                                    data.put("EmpState", EmpState);
+                                    data.put("EmpCountry", EmpCountry);
+                                    data.put("EmpPincode", EmpPincode);
+                                    data.put("EmpEmergencyNo", EmpEmergencyNo);
+
+                                    afdb.collection("Employee").document(EmpCompanyEmail).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(getActivity(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                });
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(requireContext(), "Failed to upload image", Toast.LENGTH_SHORT).show();
+                            });
+                }
             }
         });
         return view;
@@ -284,5 +316,16 @@ public class admin_add_employee extends Fragment {
                         Toast.makeText(getContext(), "Error fetching Departments: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+    private void selectImageFromGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, REQUEST_IMAGE_PICK);
+    }
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK) {
+            assert data != null;
+            imageUri = data.getData();
+        }
     }
 }

@@ -40,13 +40,12 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Employee Id : "/>
+                        android:text="Employee Email Id : "/>
 
-                    <EditText
-                        android:id="@+id/S_Emp_Id"
-                        style="@style/edit_text"
-                        android:hint="Enter Employee Id"
-                        android:background="@drawable/edit_txt_design"/>
+                    <Spinner
+                        android:id="@+id/S_Emp_Email"
+                        style="@style/spinner"
+                        android:background="@drawable/edit_txt_design" />
 
                 </LinearLayout>
 
@@ -65,15 +64,12 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="Start Date : "/>
 
-                    <DatePicker
-                        android:id="@+id/S_Start_Date"
+                    <TextView
+                        android:id="@+id/Start_Date"
+                        style="@style/edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
+                        android:background="@drawable/edit_txt_design"
+                        android:text="DD/MM/YYYY" />
 
                 </LinearLayout>
 
@@ -92,15 +88,12 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="End Date : "/>
 
-                    <DatePicker
-                        android:id="@+id/S_End_Date"
+                    <TextView
+                        android:id="@+id/End_Date"
+                        style="@style/edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/2024"
-                        android:maxDate="31/12/2024"
-                        android:background="@drawable/edit_txt_design"/>
+                        android:background="@drawable/edit_txt_design"
+                        android:text="DD/MM/YYYY" />
 
                 </LinearLayout>
 
@@ -123,6 +116,7 @@
                         android:id="@+id/S_Basic_Pay"
                         style="@style/edit_text"
                         android:hint="Enter Basic Pay"
+                        android:inputType="number"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
@@ -146,6 +140,7 @@
                         android:id="@+id/S_allowance"
                         style="@style/edit_text"
                         android:hint="Enter Allowance"
+                        android:inputType="number"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
@@ -169,6 +164,7 @@
                         android:id="@+id/S_Deduction"
                         style="@style/edit_text"
                         android:hint="Enter Deduction"
+                        android:inputType="number"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
@@ -192,29 +188,7 @@
                         android:id="@+id/S_Adjustment"
                         style="@style/edit_text"
                         android:hint="Enter Adjustment"
-                        android:background="@drawable/edit_txt_design"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tt"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ad"
-                    android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        style="@style/txt_heading_pro_detail"
-                        android:text="Total Amount : "/>
-
-                    <EditText
-                        android:id="@+id/S_Total_Amount"
-                        style="@style/edit_text"
-                        android:hint="Enter Total Amount"
+                        android:inputType="number"
                         android:background="@drawable/edit_txt_design"/>
 
                 </LinearLayout>
@@ -227,15 +201,16 @@
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tt"
+                    app:layout_constraintTop_toBottomOf="@id/ad"
                     android:layout_marginTop="10dp"
                     tools:ignore="MissingConstraints">
 
                     <Button
-                        android:layout_width="130dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_apply"
-                        android:text="Give"
+                        android:id="@+id/btn_give"
+                        android:text="Give Salary"
+                        android:padding="10dp"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:background="@drawable/button_design"

@@ -10,23 +10,34 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.autofusion.databinding.FragmentAdminAssignTaskBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class admin_assign_task extends Fragment {
 
     TextView End_Date;
+    Spinner Emp_Email;
+    private List<String> empNamesList;
+    private ArrayAdapter<String> adapter;
     View view;
     FirebaseFirestore afdb;
     FragmentAdminAssignTaskBinding task;
@@ -38,6 +49,15 @@ public class admin_assign_task extends Fragment {
         view=task.getRoot();
 
         afdb = FirebaseFirestore.getInstance();
+
+        Emp_Email = view.findViewById(R.id.Emp_Email);
+        empNamesList = new ArrayList<>();
+        adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, empNamesList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.add("--Select Employee Email--");
+        Emp_Email.setAdapter(adapter);
+        fetchDataAndPopulateSpinner();
+
         //End Date
         End_Date = view.findViewById(R.id.End_Date);
         End_Date.setOnClickListener(new View.OnClickListener() {
@@ -72,30 +92,63 @@ public class admin_assign_task extends Fragment {
             public void onClick(View view) {
 
                 String Id = task.Id.getText().toString();
-                String EmpId = task.EmpId.getText().toString();
+                String EmpEmail = task.EmpEmail.getSelectedItem().toString();
                 String TaskDescription = task.TaskDescription.getText().toString();
                 String EndDate = task.EndDate.getText().toString();
 
-                //Insert
-                Map<String,Object> data = new HashMap<>();
-                data.put("Id",Id);
-                data.put("T_Emp_Id",EmpId);
-                data.put("T_Description",TaskDescription);
-                data.put("T_End_Date",EndDate);
-
-                afdb.collection("Tasks").document(Id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful())
-                        {
-                            Toast.makeText(requireContext(), "Task assigned successfully", Toast.LENGTH_SHORT).show();
-                        }
+                try{
+                    if(Id.isEmpty() || EmpEmail.isEmpty() || TaskDescription.isEmpty() || EndDate.isEmpty()){
+                        Toast.makeText(requireContext(), "Enter Values", Toast.LENGTH_SHORT).show();
                     }
-                });
+
+                    //Insert
+                    Map<String,Object> data = new HashMap<>();
+                    data.put("Id",Id);
+                    data.put("T_Emp_Email",EmpEmail);
+                    data.put("T_Description",TaskDescription);
+                    data.put("T_End_Date",EndDate);
+
+                    afdb.collection("Tasks").document(EmpEmail).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful())
+                            {
+                                Toast.makeText(requireContext(), "Task assigned successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+                catch (Exception e){
+                    Toast.makeText(requireContext(), "Any field is Empty", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
 
         return view;
+    }
+    private void fetchDataAndPopulateSpinner() {
+        afdb.collection("Employee")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            // Retrieve departmentName field from each document and add it to the list
+                            String departmentName = documentSnapshot.getString("EmpCompanyEmail");
+                            if (departmentName != null) {
+                                empNamesList.add(departmentName);
+                            }
+                        }
+                        adapter.notifyDataSetChanged(); // Notify the adapter of data change
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle any errors
+                        Toast.makeText(getContext(), "Error fetching Employee: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

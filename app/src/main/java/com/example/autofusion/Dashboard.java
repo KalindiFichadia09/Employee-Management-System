@@ -57,10 +57,7 @@ public class Dashboard extends AppCompatActivity {
                 } else if (id==R.id.profile) {
                     loadFragment(new profile());
                     Toast.makeText(Dashboard.this,"Profile", Toast.LENGTH_SHORT).show();
-                } else if (id==R.id.working_hour) {
-                    loadFragment(new working_hour());
-                    Toast.makeText(Dashboard.this,"Working Hour", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.task) {
+                } else if (id==R.id.task) {
                     loadFragment(new task());
                     Toast.makeText(Dashboard.this,"Task", Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.leave) {

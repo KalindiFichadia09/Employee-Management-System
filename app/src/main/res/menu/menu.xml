@@ -13,10 +13,10 @@
             android:title="Profile"
             android:icon="@drawable/profile_icon"/>
 
-        <item
-            android:id="@+id/working_hour"
-            android:title="Working Hours"
-            android:icon="@drawable/working_hour_icon"/>
+<!--        <item-->
+<!--            android:id="@+id/working_hour"-->
+<!--            android:title="Working Hours"-->
+<!--            android:icon="@drawable/working_hour_icon"/>-->
 
         <item
             android:id="@+id/task"

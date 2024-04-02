@@ -43,8 +43,8 @@
                         android:text="Account Holder Name: "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Johnny Erik Brown"/>
+                        android:id="@+id/Emp_Account_Holder_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -64,8 +64,8 @@
                         android:text="Bank Name : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Bank of India"/>
+                        android:id="@+id/Emp_Bank_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -85,8 +85,8 @@
                         android:text="Bank Account Number : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="12345678911"/>
+                        android:id="@+id/Emp_Account_No"
+                        style="@style/txt_ans_pro_detail"/>
 
                 </LinearLayout>
 
@@ -106,8 +106,8 @@
                         android:text="Bank IFSC Code : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="123456789101"/>
+                        android:id="@+id/Emp_IFSC_Code"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -127,8 +127,8 @@
                         android:text="Bank Code : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="BKI101"/>
+                        android:id="@+id/Emp_Bank_Code"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -148,8 +148,8 @@
                         android:text="Branch Name : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Bhakti nager circle"/>
+                        android:id="@+id/Emp_Branch_Name"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 

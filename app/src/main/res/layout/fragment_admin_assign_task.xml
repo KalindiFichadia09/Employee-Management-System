@@ -64,13 +64,12 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Employee Id : "/>
+                        android:text="Employee Email : "/>
 
-                    <EditText
-                        android:id="@+id/Emp_Id"
-                        style="@style/edit_text"
-                        android:hint="Enter Employee Id"
-                        android:background="@drawable/edit_txt_design"/>
+                    <Spinner
+                        android:id="@+id/Emp_Email"
+                        style="@style/spinner"
+                        android:background="@drawable/edit_txt_design" />
 
                 </LinearLayout>
 

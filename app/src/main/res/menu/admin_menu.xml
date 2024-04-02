@@ -11,22 +11,22 @@
         <item
             android:id="@+id/department"
             android:title="Manage Departments"
-            android:icon="@drawable/icon_department"/>
+            android:icon="@drawable/icon_dept"/>
 
         <item
             android:id="@+id/employee"
             android:title="Manage Employee"
-            android:icon="@drawable/icon_employee"/>
+            android:icon="@drawable/profile_icon"/>
 
         <item
             android:id="@+id/task"
             android:title="Manage Task"
-            android:icon="@drawable/icon_task"/>
+            android:icon="@drawable/task_icon"/>
 
         <item
             android:id="@+id/leave"
             android:title="Manage Leave"
-            android:icon="@drawable/icon_leave"/>
+            android:icon="@drawable/leave_icon"/>
 
         <item
             android:id="@+id/salary"
@@ -36,12 +36,12 @@
         <item
             android:id="@+id/holiday"
             android:title="Manage Holidays"
-            android:icon="@drawable/icon_holiday"/>
+            android:icon="@drawable/holiday_icon"/>
 
         <item
             android:id="@+id/logout"
             android:title="Logout"
-            android:icon="@drawable/icon_logout"/>
+            android:icon="@drawable/logout_icon"/>
 
     </group>
 </menu>

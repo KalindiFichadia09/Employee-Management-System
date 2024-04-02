@@ -4,9 +4,13 @@ import static android.app.Activity.RESULT_OK;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -27,10 +31,18 @@ import android.widget.Toast;
 
 import com.example.autofusion.databinding.ActivityDashboardBinding;
 import com.example.autofusion.databinding.FragmentApplyLeaveBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class apply_leave extends Fragment {
     Spinner leave_type,leave_category;
@@ -41,22 +53,63 @@ public class apply_leave extends Fragment {
     EditText leave_remarks;
     TextView leave_start_date,leave_end_date;
     TextView txt_ans;
-    private final int GALLERY_REQUEST_CODE = 1000;
+    SharedPreferences sp;
+    private static final int REQUEST_IMAGE_PICK = 1;
+    private StorageReference storageRef;
+    Uri imageUri;
+    FirebaseFirestore afdb;
+    FragmentApplyLeaveBinding alb;
 
     @SuppressLint("MissingInflatedId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview = inflater.inflate(R.layout.fragment_apply_leave, container, false);
+        alb = FragmentApplyLeaveBinding.inflate(inflater, container, false);
+        view = alb.getRoot();
 
-        leave_type = rootview.findViewById(R.id.leave_type);
-        leave_category = rootview.findViewById(R.id.leave_category);
-        leave_start_date = rootview.findViewById(R.id.leave_start_date);
-        leave_end_date = rootview.findViewById(R.id.leave_end_date);
-        leave_remarks = rootview.findViewById(R.id.leave_remarks);
-        leave_attachment = rootview.findViewById(R.id.leave_attachment);
-        btn_apply = rootview.findViewById(R.id.btn_apply);
+        leave_start_date = view.findViewById(R.id.leave_start_date);
+        leave_end_date = view.findViewById(R.id.leave_end_date);
+        leave_attachment = view.findViewById(R.id.leave_attachment);
+
+        sp = requireContext().getSharedPreferences("AutoFusionLogin", Context.MODE_PRIVATE);
+        String unm = sp.getString("Username",null);
+        storageRef = FirebaseStorage.getInstance().getReference();
+        afdb = FirebaseFirestore.getInstance();
+
+        leave_type = view.findViewById(R.id.leave_type);
+        leave_category = view.findViewById(R.id.leave_category);
+        String[] leave_type_s = getResources().getStringArray(R.array.leave_type);
+        String[] leave_category_S = getResources().getStringArray(R.array.leave_category);
+
+        ArrayAdapter<String> leave_type_ad = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, leave_type_s);
+        ArrayAdapter<String> leave_category_ad = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item,leave_category_S);
+
+        leave_type.setAdapter(leave_type_ad);
+        leave_category.setAdapter(leave_category_ad);
+        leave_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                v1 = leave_type_ad.getItem(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        leave_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                v2 = leave_category_ad.getItem(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         leave_start_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,75 +161,71 @@ public class apply_leave extends Fragment {
             }
         });
 
-
-        btn_apply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-            }
-        });
-
-        String[] leave_type_s = getResources().getStringArray(R.array.leave_type);
-        String[] leave_category_S = getResources().getStringArray(R.array.leave_category);
-
-        ArrayAdapter<String> leave_type_ad = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, leave_type_s);
-        ArrayAdapter<String> leave_category_ad = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item,leave_category_S);
-
-        leave_type.setAdapter(leave_type_ad);
-        leave_category.setAdapter(leave_category_ad);
-
-        leave_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                v1 = leave_type_ad.getItem(i);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        leave_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                v2 = leave_category_ad.getItem(i);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         leave_attachment.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View v) {
+                selectImageFromGallery();
+            }
+        });
+        alb.btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
 
-                Intent gallery = new Intent(Intent.ACTION_PICK);
-                gallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(gallery,GALLERY_REQUEST_CODE);
+                String leaveType = alb.leaveType.getSelectedItem().toString();
+                String leaveCategory = alb.leaveCategory.getSelectedItem().toString();
+                String leaveStartDate = alb.leaveStartDate.getText().toString();
+                String leaveEndDate = alb.leaveEndDate.getText().toString();
+                String leaveRemarks = alb.leaveRemarks.getText().toString();
 
+
+                if (imageUri != null) {
+                    StorageReference imageRef = storageRef.child("images/" + System.currentTimeMillis() + ".jpg");
+                    imageRef.putFile(imageUri)
+                            .addOnSuccessListener(taskSnapshot -> {
+                                imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                                    String imageUrl = uri.toString();
+
+                                    Map<String,Object> data = new HashMap<>();
+                                    data.put("leaveEmpEmail",unm);
+                                    data.put("leaveType",leaveType);
+                                    data.put("leaveCategory",leaveCategory);
+                                    data.put("leaveStartDate",leaveStartDate);
+                                    data.put("leaveEndDate",leaveEndDate);
+                                    data.put("leaveRemarks",leaveRemarks);
+                                    data.put("leaveAttechment",imageUrl);
+                                    afdb.collection("Leaves").document(unm).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(getActivity(), "Leave Apply Successfully", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                });
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(requireContext(), "Failed to upload image", Toast.LENGTH_SHORT).show();
+                            });
+                } else {
+                    Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
-        return rootview;
-    }
 
-    @Override
+
+
+        return view;
+    }
+    private void selectImageFromGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, REQUEST_IMAGE_PICK);
+    }
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            if(requestCode == GALLERY_REQUEST_CODE) {
-                //for gallery
-                leave_attachment.setImageURI(data.getData());
-
-                leave_attachment.getLayoutParams().width = 500; // set width to 200 pixels
-                leave_attachment.getLayoutParams().height = 500; // set height to 200 pixels
-            }
+        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK) {
+            assert data != null;
+            imageUri = data.getData();
         }
     }
 }

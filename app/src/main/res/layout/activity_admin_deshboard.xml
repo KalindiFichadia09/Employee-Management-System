@@ -38,6 +38,7 @@
         android:background="#182932"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/admin_menu"
+        app:itemIconTint="@color/white"
         app:itemBackground="@drawable/menu_item_bg"
         app:itemTextColor="@color/white" />
 

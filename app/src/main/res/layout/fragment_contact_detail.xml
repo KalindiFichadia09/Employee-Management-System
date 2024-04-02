@@ -43,8 +43,8 @@
                         android:text="Address : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="1807 Holden Street San Diego, CA"/>
+                        android:id="@+id/Emp_Address"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -64,8 +64,8 @@
                         android:text="City : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Mumbai"/>
+                        android:id="@+id/Emp_City"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -85,8 +85,8 @@
                         android:text="State : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="Maharashtra"/>
+                        android:id="@+id/Emp_State"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -106,8 +106,8 @@
                         android:text="Country : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="India"/>
+                        android:id="@+id/Emp_Country"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -127,8 +127,8 @@
                         android:text="Pin Code : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="310004"/>
+                        android:id="@+id/Emp_Pincode"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 
@@ -148,8 +148,8 @@
                         android:text="Emergency no : "/>
 
                     <TextView
-                        style="@style/txt_ans_pro_detail"
-                        android:text="+91 9988446655"/>
+                        android:id="@+id/Emp_Emergency_no"
+                        style="@style/txt_ans_pro_detail" />
 
                 </LinearLayout>
 

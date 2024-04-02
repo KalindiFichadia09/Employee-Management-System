@@ -46,7 +46,7 @@ public class admin_show_department extends Fragment {
         rowHeader.setBackgroundColor(getResources().getColor(R.color.tbl_heading));
         rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText = {"ID", "NAME","Edit","Remove"};
+        String[] headerText = {"ID", "NAME"};
         for (String c : headerText) {
             TextView tv = new TextView(requireContext());
             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
@@ -70,13 +70,11 @@ public class admin_show_department extends Fragment {
                     for (DocumentSnapshot document : task.getResult()) {
                         String dept_id = document.getString("Dept_Id");
                         String dept_name = document.getString("Dept_Name");
-                        String ud = "Edit";
-                        String dlt = "Remove";
                         // data rows
                         TableRow row = new TableRow(requireContext());
                         row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                                 TableLayout.LayoutParams.WRAP_CONTENT));
-                        String[] colText = {dept_id, dept_name,ud,dlt};
+                        String[] colText = {dept_id, dept_name};
                         for (String text : colText) {
                             TextView tv = new TextView(requireContext());
                             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,

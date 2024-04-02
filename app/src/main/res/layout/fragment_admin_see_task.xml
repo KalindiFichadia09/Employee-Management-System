@@ -9,20 +9,19 @@
     android:background="@color/background"
     tools:context=".admin_see_task">
 
-    <ScrollView
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
         <TableLayout
             android:id="@+id/tablelayout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/table_background"
             android:stretchColumns="*">
 
         </TableLayout>
 
-    </ScrollView>
+    </HorizontalScrollView>
 
 </LinearLayout>

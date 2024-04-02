@@ -32,10 +32,8 @@ public class admin_dashboard extends AppCompatActivity {
         sp = getSharedPreferences("AutoFusionLogin",MODE_PRIVATE);
 
         toolbar = findViewById(R.id.toolbar);
-
         drawer_layout = findViewById(R.id.drawer_layout);
         nav_view = findViewById(R.id.nav_view);
-
         setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(admin_dashboard.this,drawer_layout,toolbar,R.string.open_navigation_drawer,R.string.close_navigation_drawer);
@@ -73,9 +71,9 @@ public class admin_dashboard extends AppCompatActivity {
                     loadFragment(new admin_manage_holiday());
                     Toast.makeText(admin_dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
                 } else {
-                    spe=sp.edit();
-                    spe.remove("logVar");
-                    spe.apply();
+//                    spe=sp.edit();
+//                    spe.remove("logVar");
+//                    spe.apply();
                     startActivity(new Intent(getApplicationContext(), login.class));
                     Toast.makeText(admin_dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
                     finish();

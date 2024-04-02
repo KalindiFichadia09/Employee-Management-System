@@ -15,7 +15,7 @@ public class tablayoutAdapter_holiday extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position==0)
-            return new admin_add_holiday();
+            return new admin_add_Holiday();
         else
             return new admin_see_holiday();
     }

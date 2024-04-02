@@ -1,162 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:background="@color/background"
     tools:context=".admin_manage_leave">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        app:cardCornerRadius="20dp"
-        tools:ignore="MissingConstraints">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <HorizontalScrollView
+        <TableLayout
+            android:id="@+id/tablelayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_background"
+            android:stretchColumns="*">
 
-            <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:stretchColumns="*">
+        </TableLayout>
 
-                <TableRow android:background="#E6E1E1">
+    </HorizontalScrollView>
 
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Sr No" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Employee Id" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Leave type" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Leave category" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Leave start date" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Leave end date" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Remarks" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Atteched Documents" />
-
-                    <TextView
-                        style="@style/txt_tbl_heading"
-                        android:text="Action" />
-                </TableRow>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="1dp"
-                    android:background="#858383" />
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="1" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="EMP101" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="CL" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="Fullday" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="02 January 2024" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="02 January 2024" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="I want day leave..." />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="-" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="Approved"
-                        android:textColor="#5ED663" />
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="2" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="EMP110" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="PL" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="Fullday" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="02 January 2024" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="05 January 2024" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="I want leave..." />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="-" />
-
-                    <TextView
-                        style="@style/txt_tbl_ans"
-                        android:text="Pending"
-                        android:textColor="#C8F35D57" />
-                </TableRow>
-
-            </TableLayout>
-
-        </HorizontalScrollView>
-
-    </androidx.cardview.widget.CardView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

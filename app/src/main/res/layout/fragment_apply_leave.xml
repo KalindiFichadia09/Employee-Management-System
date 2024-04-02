@@ -19,8 +19,9 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flow_verticalAlign="center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="fill_parent"
@@ -62,12 +63,12 @@
 
                     <TextView
                         style="@style/txt_heading_pro_detail"
-                        android:text="Leave Type : "/>
+                        android:text="Leave Category : "/>
 
                         <Spinner
-                        android:id="@+id/leave_category"
-                        style="@style/spinner"
-                        android:background="@drawable/edit_txt_design" />
+                            android:id="@+id/leave_category"
+                            style="@style/spinner"
+                            android:background="@drawable/edit_txt_design" />
 
                 </LinearLayout>
 

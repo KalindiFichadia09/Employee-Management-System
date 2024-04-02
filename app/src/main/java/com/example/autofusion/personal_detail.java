@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.autofusion.databinding.FragmentPersonalDetailBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,6 +57,11 @@ public class personal_detail extends Fragment {
                         pib.EmpAge.setText(document.getString("EmpAge"));
                         pib.EmpMobileNo.setText(document.getString("EmpMobileNo"));
                         pib.EmpEmail.setText(document.getString("EmpEmail"));
+
+                        String EmpImage = document.getString("EmpImage");
+                        Glide.with(requireContext())
+                                .load(EmpImage)
+                                .into(pib.EmpImg);
 
                     }
                 }
