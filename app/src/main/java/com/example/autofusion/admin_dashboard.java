@@ -2,6 +2,7 @@ package com.example.autofusion;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -50,30 +52,30 @@ public class admin_dashboard extends AppCompatActivity {
                 int id  = item.getItemId();
 
                 if(id==R.id.dashboard) {
-                    loadFragment(new admin_dboard());
+                    replaceFragment(new admin_dboard());
                     Toast.makeText(admin_dashboard.this,"Dashboard", Toast.LENGTH_SHORT).show();
                 } else if (id==R.id.department) {
-                    loadFragment(new admin_manage_departments());
+                    replaceFragment(new admin_manage_departments());
                     Toast.makeText(admin_dashboard.this,"Departments", Toast.LENGTH_SHORT).show();
                 } else if (id==R.id.employee) {
-                    loadFragment(new admin_manage_employee());
+                    replaceFragment(new admin_manage_employee());
                     Toast.makeText(admin_dashboard.this,"Employees", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.task) {
-                    loadFragment(new admin_manage_task());
+                } else if (id==R.id.task) {
+                    replaceFragment(new admin_manage_task());
                     Toast.makeText(admin_dashboard.this,"Task", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.leave) {
-                    loadFragment(new admin_manage_leave());
+                } else if (id==R.id.leave) {
+                    replaceFragment(new admin_manage_leave());
                     Toast.makeText(admin_dashboard.this,"Leave", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.salary) {
-                    loadFragment(new admin_manage_salary());
+                } else if (id==R.id.salary) {
+                    replaceFragment(new admin_manage_salary());
                     Toast.makeText(admin_dashboard.this,"Salary", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.holiday) {
-                    loadFragment(new admin_manage_holiday());
+                } else if (id==R.id.holiday) {
+                    replaceFragment(new admin_manage_holiday());
                     Toast.makeText(admin_dashboard.this,"Holiday", Toast.LENGTH_SHORT).show();
                 } else {
-//                    spe=sp.edit();
-//                    spe.remove("logVar");
-//                    spe.apply();
+                    spe=sp.edit();
+                    spe.remove("logVar");
+                    spe.apply();
                     startActivity(new Intent(getApplicationContext(), login.class));
                     Toast.makeText(admin_dashboard.this,"Logout", Toast.LENGTH_SHORT).show();
                     finish();
@@ -81,7 +83,6 @@ public class admin_dashboard extends AppCompatActivity {
                 drawer_layout.closeDrawer(GravityCompat.START);
                 return true;
             }
-
         });
     }
     public void loadFragment(Fragment fragment) {
@@ -90,11 +91,38 @@ public class admin_dashboard extends AppCompatActivity {
         ft.add(R.id.fragment_container,fragment);
         ft.commit();
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        // Replace the fragment and add it to the back stack
+        ft.replace(R.id.fragment_container, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
     public void onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)){
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START);
-        }else {
-            super.onBackPressed();
+        } else {
+            FragmentManager fm = getSupportFragmentManager();
+            if (fm.getBackStackEntryCount() > 0) {
+                // Pop the fragment from the back stack
+                fm.popBackStack();
+            } else {
+                // Show AlertDialog for confirmation to exit the application
+                new AlertDialog.Builder(this)
+                        .setMessage("Are you sure you want to exit?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finishAffinity();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .create()
+                        .show();
+            }
         }
     }
 }

@@ -5,24 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/background"
-    tools:context=".admin_show_department">
+    android:padding="16dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <TableLayout
-                android:id="@+id/tablelayout"
+                android:id="@+id/table_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/table_background"
-                android:stretchColumns="*">
+                android:background="@color/white">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#E6E1E1">
+
+                    <TextView
+                        android:text="Department ID"
+                        style="@style/txt_tbl_heading"/>
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Department Name" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Edit" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Remove" />
+
+                </TableRow>
 
             </TableLayout>
 
-        </ScrollView>
+        </HorizontalScrollView>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -2,112 +2,140 @@ package com.example.autofusion;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.autofusion.databinding.FragmentSeeLeaveBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class see_leave extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
+public class see_leave extends Fragment {
+    private TableLayout tableLayout;
+    private List<Show_Leave> LeaveList;
     private FirebaseFirestore afdb;
+    String unm;
     SharedPreferences sp;
     View view;
-
     FragmentSeeLeaveBinding slb;
 
     @SuppressLint("ResourceAsColor")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        slb =  FragmentSeeLeaveBinding.inflate(inflater, container, false);
+        slb = FragmentSeeLeaveBinding.inflate(inflater, container, false);
         view = slb.getRoot();
 
+        tableLayout = view.findViewById(R.id.table_layout);
+        LeaveList = new ArrayList<>();
         afdb = FirebaseFirestore.getInstance();
+
         sp = requireContext().getSharedPreferences("AutoFusionLogin", Context.MODE_PRIVATE);
-        String unm = sp.getString("Username",null);
+        unm = sp.getString("Username", null);
 
-        final TableLayout tableLayout = view.findViewById(R.id.tablelayout);
+        loadLeave();
+        return view;
+    }
 
-        Typeface typeface = ResourcesCompat.getFont(requireContext(), R.font.font_txt_heading);
-
-        // Add header row
-        TableRow rowHeader = new TableRow(requireContext());
-        rowHeader.setBackgroundColor(getResources().getColor(R.color.tbl_heading));
-        rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText = {"Leave Type", "Leave Category","Leave Start Date","Leave End Date","Leave Remarks"};
-        for (String c : headerText) {
-            TextView tv = new TextView(requireContext());
-            tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                    TableRow.LayoutParams.WRAP_CONTENT));
-            tv.setTextSize(15);
-            tv.setTextColor(R.color.black_heading);
-            tv.setTypeface(typeface );
-            tv.setGravity(Gravity.CENTER);
-            tv.setPadding(8, 8, 8, 8);
-            tv.setText(c);
-            rowHeader.addView(tv);
-        }
-        tableLayout.addView(rowHeader);
-
-        if (unm != null) {
-            afdb.collection("Leaves").document(unm).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+    private void loadLeave() {
+        afdb.collection("Leaves").whereEqualTo("leaveEmpEmail", unm)
+                .get()
+                .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-
+                        for (DocumentSnapshot document : task.getResult()) {
                             String leaveType = document.getString("leaveType");
                             String leaveCategory = document.getString("leaveCategory");
-                            String LeaveStartDate = document.getString("leaveStartDate");
+                            String leaveStartDate = document.getString("leaveStartDate");
                             String leaveEndDate = document.getString("leaveEndDate");
                             String leaveRemark = document.getString("leaveRemarks");
-
-                            // data rows
-                            TableRow row = new TableRow(requireContext());
-                            row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
-                                    TableLayout.LayoutParams.WRAP_CONTENT));
-                            String[] colText = {leaveType, leaveCategory,LeaveStartDate,leaveEndDate,leaveRemark};
-                            for (String text : colText) {
-                                TextView tv = new TextView(requireContext());
-                                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                                        TableRow.LayoutParams.WRAP_CONTENT));
-                                tv.setTextSize(15);
-                                tv.setTextColor(R.color.tbl_ans);
-                                tv.setGravity(Gravity.CENTER);
-                                tv.setPadding(10, 10, 10, 10);
-                                tv.setText(text);
-                                row.addView(tv);
-                            }
-                            tableLayout.addView(row);
+                            String leaveStatus = document.getString("leaveStatus");
+                            addRowToTable(leaveType, leaveCategory, leaveStartDate, leaveEndDate, leaveRemark, leaveStatus);
                         }
+                    } else {
+                        Toast.makeText(requireContext(), "Error fetching leaves", Toast.LENGTH_SHORT).show();
                     }
-                }
-            });
-        }
+                });
+    }
 
-        return view;
+
+    @SuppressLint("ResourceAsColor")
+    private void addRowToTable(String leaveType, String leaveCategory, String LeaveStartDate, String leaveEndDate, String leaveRemark, String leaveStatus) {
+        TableRow row = new TableRow(requireContext());
+
+        TextView tvLT = new TextView(requireContext());
+        tvLT.setText(leaveType);
+        applyStyleToTextView(requireContext(), tvLT);
+
+        TextView tvLC = new TextView(requireContext());
+        tvLC.setText(leaveCategory);
+        applyStyleToTextView(requireContext(), tvLC);
+
+        TextView tvLSD = new TextView(requireContext());
+        tvLSD.setText(LeaveStartDate);
+        applyStyleToTextView(requireContext(), tvLSD);
+
+        TextView tvLED = new TextView(requireContext());
+        tvLED.setText(leaveEndDate);
+        applyStyleToTextView(requireContext(), tvLED);
+
+        TextView tvLR = new TextView(requireContext());
+        tvLR.setText(leaveRemark);
+        applyStyleToTextView(requireContext(), tvLR);
+
+        TextView tvLS = new TextView(requireContext());
+        tvLS.setText(leaveStatus);
+        applyStyleToTextView(requireContext(), tvLS);
+
+        row.addView(tvLT);
+        row.addView(tvLC);
+        row.addView(tvLSD);
+        row.addView(tvLED);
+        row.addView(tvLR);
+        row.addView(tvLS);
+
+        tableLayout.addView(row);
+    }
+
+    public void applyStyleToTextView(Context context, TextView textView) {
+        TypedArray attributes = context.getTheme().obtainStyledAttributes(R.style.txt_tbl_ans, new int[]{
+                android.R.attr.textSize,
+                android.R.attr.textColor,
+                android.R.attr.gravity,
+                android.R.attr.padding
+        });
+
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, attributes.getDimensionPixelSize(0, -1));
+        textView.setTextColor(attributes.getColor(1, Color.BLACK));
+        textView.setGravity(attributes.getInt(2, Gravity.NO_GRAVITY));
+        textView.setPadding(attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0));
+
+        attributes.recycle();
     }
 }

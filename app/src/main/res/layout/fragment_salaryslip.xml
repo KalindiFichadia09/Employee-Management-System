@@ -9,19 +9,60 @@
     android:background="@color/background"
     tools:context=".see_leave">
 
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TableLayout
-            android:id="@+id/tablelayout"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/table_background"
-            android:stretchColumns="*">
+            android:layout_height="match_parent">
 
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
-    </HorizontalScrollView>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#E6E1E1">
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Start Date"/>
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="End Date" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Basic Pay" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Allowance" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Deduction" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Adjustment" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Total Pay" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
 
 </LinearLayout>

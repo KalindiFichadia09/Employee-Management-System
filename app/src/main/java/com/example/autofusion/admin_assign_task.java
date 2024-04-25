@@ -41,12 +41,13 @@ public class admin_assign_task extends Fragment {
     View view;
     FirebaseFirestore afdb;
     FragmentAdminAssignTaskBinding task;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         task = FragmentAdminAssignTaskBinding.inflate(inflater, container, false);
-        view=task.getRoot();
+        view = task.getRoot();
 
         afdb = FirebaseFirestore.getInstance();
 
@@ -91,34 +92,57 @@ public class admin_assign_task extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String Id = task.Id.getText().toString();
+//                String Id = task.Id.getText().toString();
                 String EmpEmail = task.EmpEmail.getSelectedItem().toString();
                 String TaskDescription = task.TaskDescription.getText().toString();
                 String EndDate = task.EndDate.getText().toString();
 
-                try{
-                    if(Id.isEmpty() || EmpEmail.isEmpty() || TaskDescription.isEmpty() || EndDate.isEmpty()){
+                try {
+                    if (EmpEmail.isEmpty() || TaskDescription.isEmpty() || EndDate.isEmpty()) {
                         Toast.makeText(requireContext(), "Enter Values", Toast.LENGTH_SHORT).show();
                     }
+                    afdb.collection("Tasks").get().addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            int documentCount = task.getResult().size();
+                            String documentName = String.valueOf(documentCount + 1);
 
-                    //Insert
-                    Map<String,Object> data = new HashMap<>();
-                    data.put("Id",Id);
-                    data.put("T_Emp_Email",EmpEmail);
-                    data.put("T_Description",TaskDescription);
-                    data.put("T_End_Date",EndDate);
+                            // Prepare data for the new document
+                            Map<String, Object> data = new HashMap<>();
+//                            data.put("Id", documentName);
+                            data.put("T_Emp_Email", EmpEmail);
+                            data.put("T_Description", TaskDescription);
+                            data.put("T_End_Date", EndDate);
 
-                    afdb.collection("Tasks").document(EmpEmail).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful())
-                            {
-                                Toast.makeText(requireContext(), "Task assigned successfully", Toast.LENGTH_SHORT).show();
-                            }
+                            // Add the new document to the collection with the dynamically generated name
+                            afdb.collection("Tasks").document(documentName).set(data)
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            Toast.makeText(getActivity(), "Task Assigned Successfully", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getActivity(), "Failed to Assign", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(getActivity(), "Failed to Get Document Count", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
-                catch (Exception e){
+//                    //Insert
+//                    Map<String,Object> data = new HashMap<>();
+//                    data.put("Id",Id);
+//                    data.put("T_Emp_Email",EmpEmail);
+//                    data.put("T_Description",TaskDescription);
+//                    data.put("T_End_Date",EndDate);
+//
+//                    afdb.collection("Tasks").get().addOnCompleteListener(task -> {
+//                        if (task.isSuccessful()) {
+//                            int documentCount = task.getResult().size();
+//                            String documentName = String.valueOf(documentCount + 1);
+//
+//                                Toast.makeText(requireContext(), "Task assigned successfully", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+                } catch (Exception e) {
                     Toast.makeText(requireContext(), "Any field is Empty", Toast.LENGTH_SHORT).show();
                 }
 
@@ -127,6 +151,7 @@ public class admin_assign_task extends Fragment {
 
         return view;
     }
+
     private void fetchDataAndPopulateSpinner() {
         afdb.collection("Employee")
                 .get()

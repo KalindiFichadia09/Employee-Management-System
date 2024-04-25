@@ -1,12 +1,17 @@
 package com.example.autofusion;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -19,9 +24,11 @@ import org.w3c.dom.Text;
 public class admin_dboard extends Fragment {
 
     TextView tot_emp,tot_leave,tot_dept;
+    ImageView tot_empi,pd_leave,dept;
     FirebaseFirestore afdb;
     View view;
 
+    @SuppressLint("WrongViewCast")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,11 +56,10 @@ public class admin_dboard extends Fragment {
 
             }
         });
-
+        String sts = "Pending";
         CollectionReference collectionRefleave = afdb.collection("Leaves");
 
-        // Query for all documents in the collection
-        collectionRefleave.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        collectionRefleave.whereEqualTo("leaveStatus", "Pending").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 // Get the number of documents in the result set
@@ -84,6 +90,44 @@ public class admin_dboard extends Fragment {
             }
         });
 
+        tot_empi=view.findViewById(R.id.tot_emp);
+        tot_empi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment newFragment = new admin_show_employee();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        pd_leave=view.findViewById(R.id.pd_leave);
+        pd_leave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment newFragment = new admin_manage_leave();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        dept=view.findViewById(R.id.dept);
+        dept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment newFragment = new admin_show_department();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }

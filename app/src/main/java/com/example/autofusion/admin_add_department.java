@@ -56,7 +56,7 @@ public class admin_add_department extends Fragment {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(getActivity(), "Added Successfully", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(getActivity(),MainActivity.class));
+                                startActivity(new Intent(requireContext(), admin_show_department.class));
                             }
                         }
                     });

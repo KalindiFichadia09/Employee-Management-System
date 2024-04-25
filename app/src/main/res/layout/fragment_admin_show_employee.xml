@@ -9,19 +9,48 @@
     android:background="@color/background"
     tools:context=".admin_show_employee">
 
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TableLayout
-            android:id="@+id/tablelayout"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/table_background"
-            android:stretchColumns="*">
+            android:layout_height="match_parent">
 
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
-    </HorizontalScrollView>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#E6E1E1">
+
+                    <TextView
+                        android:text="Employee Name"
+                        style="@style/txt_tbl_heading"/>
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Employee Company Email" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Employee Mobile No" />
+
+                    <TextView
+                        style="@style/txt_tbl_heading"
+                        android:text="Employee Department" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
 
 </LinearLayout>

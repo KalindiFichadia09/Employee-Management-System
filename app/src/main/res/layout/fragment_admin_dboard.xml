@@ -98,6 +98,7 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/tot_emp"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:padding="10dp"
@@ -160,6 +161,7 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/pd_leave"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:padding="10dp"
@@ -173,7 +175,7 @@
                         android:id="@+id/title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pending Leave"
+                        android:text="Pending Leaves"
                         android:textAlignment="center"
                         android:textSize="25sp"
                         app:layout_constraintHorizontal_bias="0.1"
@@ -223,6 +225,7 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/dept"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:padding="10dp"

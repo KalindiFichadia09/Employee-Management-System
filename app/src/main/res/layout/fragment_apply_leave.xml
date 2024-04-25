@@ -6,7 +6,8 @@
     android:padding="16dp"
     android:background="@color/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -65,10 +66,10 @@
                         style="@style/txt_heading_pro_detail"
                         android:text="Leave Category : "/>
 
-                        <Spinner
-                            android:id="@+id/leave_category"
-                            style="@style/spinner"
-                            android:background="@drawable/edit_txt_design" />
+                    <Spinner
+                        android:id="@+id/leave_category"
+                        style="@style/spinner"
+                        android:background="@drawable/edit_txt_design" />
 
                 </LinearLayout>
 

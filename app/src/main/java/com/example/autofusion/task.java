@@ -3,13 +3,15 @@ package com.example.autofusion;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,81 +29,80 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class task extends Fragment {
+    private TableLayout tableLayout;
+    private List<User_Show_Task> TaskList;
     FirebaseFirestore afdb;
+    String unm;
     SharedPreferences sp;
     View view;
+
     @SuppressLint("ResourceAsColor")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_task, container, false);
+        view = inflater.inflate(R.layout.fragment_task, container, false);
 
-        sp= requireContext().getSharedPreferences("AutoFusionLogin", Context.MODE_PRIVATE);
-        String unm = sp.getString("Username",null);
-
+        tableLayout = view.findViewById(R.id.table_layout);
+        TaskList = new ArrayList<>();
         afdb = FirebaseFirestore.getInstance();
 
-        final TableLayout tablelayout = view.findViewById(R.id.tablelayout);
-        afdb = FirebaseFirestore.getInstance();
+        sp = requireContext().getSharedPreferences("AutoFusionLogin", Context.MODE_PRIVATE);
+        unm = sp.getString("Username", null);
 
-        Typeface typeface = ResourcesCompat.getFont(requireContext(), R.font.font_txt_heading);
+        loadTask();
+        return view;
+    }
 
-        // Add header row
-        TableRow rowHeader = new TableRow(requireContext());
-        rowHeader.setBackgroundColor(getResources().getColor(R.color.tbl_heading));
-        rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText = {"Description","End Date"};
-        for (String c : headerText) {
-            TextView tv = new TextView(requireContext());
-            tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                    TableRow.LayoutParams.WRAP_CONTENT));
-            tv.setTextSize(15);
-            tv.setTextColor(R.color.black_heading);
-            tv.setTypeface(typeface );
-            tv.setGravity(Gravity.CENTER);
-            tv.setPadding(10, 10, 10, 10);
-            tv.setText(c);
-            rowHeader.addView(tv);
-        }
-        tablelayout.addView(rowHeader);
-
-            if (unm != null) {
-                afdb.collection("Tasks").document(unm).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                String TEmpEmail = document.getString("T_Emp_Email");
-                                String TDescription = document.getString("T_Description");
-                                String TEndDate = document.getString("T_End_Date");
-
-
-                                // data rows
-                                TableRow row = new TableRow(requireContext());
-                                row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
-                                        TableLayout.LayoutParams.WRAP_CONTENT));
-                                String[] colText = {TDescription, TEndDate};
-                                for (String text : colText) {
-                                    TextView tv = new TextView(requireContext());
-                                    tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                                            TableRow.LayoutParams.WRAP_CONTENT));
-                                    tv.setTextSize(15);
-                                    tv.setTextColor(R.color.tbl_ans);
-                                    tv.setGravity(Gravity.CENTER);
-                                    tv.setPadding(10, 10, 10, 10);
-                                    tv.setText(text);
-                                    row.addView(tv);
-                                }
-                                tablelayout.addView(row);
-                            }
+    private void loadTask() {
+        afdb.collection("Tasks").whereEqualTo("T_Emp_Email", unm)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (DocumentSnapshot document : task.getResult()) {
+                            String TEmpEmail = document.getString("T_Emp_Email");
+                            String TDescription = document.getString("T_Description");
+                            String TEndDate = document.getString("T_End_Date");
+                            TaskList.add(new User_Show_Task(TDescription, TEndDate));
+                            addRowToTable(TDescription, TEndDate);
                         }
+                    } else {
+                        Toast.makeText(requireContext(), "Error fetching Tasks", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
-        return view;
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void addRowToTable(String TDescription, String TEndDate) {
+        TableRow row = new TableRow(requireContext());
+
+        TextView tvTDescription = new TextView(requireContext());
+        tvTDescription.setText(TDescription);
+        applyStyleToTextView(requireContext(), tvTDescription);
+
+        TextView tvTEndDate = new TextView(requireContext());
+        tvTEndDate.setText(TEndDate);
+        applyStyleToTextView(requireContext(), tvTEndDate);
+
+        row.addView(tvTDescription);
+        row.addView(tvTEndDate);
+
+        tableLayout.addView(row);
+    }
+
+    public void applyStyleToTextView(Context context, TextView textView) {
+        TypedArray attributes = context.getTheme().obtainStyledAttributes(R.style.txt_tbl_ans, new int[]{android.R.attr.textSize, android.R.attr.textColor, android.R.attr.gravity, android.R.attr.padding});
+
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, attributes.getDimensionPixelSize(0, -1));
+        textView.setTextColor(attributes.getColor(1, Color.BLACK));
+        textView.setGravity(attributes.getInt(2, Gravity.NO_GRAVITY));
+        textView.setPadding(attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0), attributes.getDimensionPixelSize(3, 0));
+
+        attributes.recycle();
     }
 }

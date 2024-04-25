@@ -7,6 +7,12 @@
     <string name="nav_close">close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="leave_type">leave_type</string>
+    <string name="leave_category">leave_category</string>
+    <string name="add_attachment">add_attachment</string>
+    <string name="apply">apply</string>
+    <string name="leave_start_date">Leave Start Date :</string>
+    <string name="leave_end_date">Leave End Date</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <string-array name="leave_type">

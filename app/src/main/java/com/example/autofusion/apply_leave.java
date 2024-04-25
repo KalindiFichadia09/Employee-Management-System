@@ -176,7 +176,7 @@ public class apply_leave extends Fragment {
                 String leaveStartDate = alb.leaveStartDate.getText().toString();
                 String leaveEndDate = alb.leaveEndDate.getText().toString();
                 String leaveRemarks = alb.leaveRemarks.getText().toString();
-
+                String leaveStatus = "Pending";
 
                 if (imageUri != null) {
                     StorageReference imageRef = storageRef.child("images/" + System.currentTimeMillis() + ".jpg");
@@ -185,20 +185,33 @@ public class apply_leave extends Fragment {
                                 imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                                     String imageUrl = uri.toString();
 
-                                    Map<String,Object> data = new HashMap<>();
-                                    data.put("leaveEmpEmail",unm);
-                                    data.put("leaveType",leaveType);
-                                    data.put("leaveCategory",leaveCategory);
-                                    data.put("leaveStartDate",leaveStartDate);
-                                    data.put("leaveEndDate",leaveEndDate);
-                                    data.put("leaveRemarks",leaveRemarks);
-                                    data.put("leaveAttechment",imageUrl);
-                                    afdb.collection("Leaves").document(unm).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(getActivity(), "Leave Apply Successfully", Toast.LENGTH_SHORT).show();
-                                            }
+                                    afdb.collection("Leaves").get().addOnCompleteListener(task -> {
+                                        if (task.isSuccessful()) {
+                                            int documentCount = task.getResult().size();
+                                            String documentName = String.valueOf(documentCount + 1);
+
+                                            // Prepare data for the new document
+                                            Map<String, Object> data = new HashMap<>();
+                                            data.put("leaveEmpEmail", unm);
+                                            data.put("leaveType", leaveType);
+                                            data.put("leaveCategory", leaveCategory);
+                                            data.put("leaveStartDate", leaveStartDate);
+                                            data.put("leaveEndDate", leaveEndDate);
+                                            data.put("leaveRemarks", leaveRemarks);
+                                            data.put("leaveAttachment", imageUrl);
+                                            data.put("leaveStatus", leaveStatus);
+
+                                            // Add the new document to the collection with the dynamically generated name
+                                            afdb.collection("Leaves").document(documentName).set(data)
+                                                    .addOnCompleteListener(task1 -> {
+                                                        if (task1.isSuccessful()) {
+                                                            Toast.makeText(getActivity(), "Leave Applied Successfully", Toast.LENGTH_SHORT).show();
+                                                        } else {
+                                                            Toast.makeText(getActivity(), "Failed to Apply Leave", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                        } else {
+                                            Toast.makeText(getActivity(), "Failed to Get Document Count", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                 });

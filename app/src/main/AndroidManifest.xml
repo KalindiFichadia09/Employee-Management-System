@@ -13,6 +13,11 @@
         android:theme="@style/Theme.AutoFusion"
         tools:targetApi="31">
         <activity
+            android:name=".admin_update_department"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
             android:name=".admin_dashboard"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -21,7 +26,6 @@
             android:name=".forgot_password"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
-
         <activity
             android:name=".splash_screen"
             android:exported="true"
@@ -41,16 +45,16 @@
         <activity
             android:name=".pro"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".profile"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Dashboard"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
